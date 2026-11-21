@@ -51,20 +51,22 @@ def card(base, path, box, label, color, crop=None):
 
 def main():
     g, lo, ga, rl = load("gpt_pretrain"), load("lora"), load("gan"), load("rl")
+    gl, wg, df, dp = load("gan_long"), load("wgan_gp"), load("diffusion"), load("dpo")
     runs = {r["method"]: r for r in lo["runs"]}
     ns = [r["final"] for r in ga["runs"] if r["loss"] == "non_saturating"]
     eps = [r["first_update_at_195"] for r in rl["runs"]]
     im = background()
     card(im, IMG / "gpt_loss.png", (960, 70, 1570, 300), "GPT pretraining", ICE)
     card(im, IMG / "lora.png", (960, 360, 1570, 560), "LoRA vs full fine-tuning", PURPLE, crop=(0, 0, 1130, 720))
-    card(im, IMG / "gan.png", (960, 620, 1570, 760), "GAN", GREEN, crop=(0, 0, 2050, 580))
+    card(im, IMG / "ring_compare.png", (960, 620, 1570, 760), "GAN · WGAN-GP · diffusion", GREEN)
     card(im, IMG / "rl.png", (1160, 790, 1570, 880), "REINFORCE", ORANGE)
     d = ImageDraw.Draw(im)
     d.text((80, 70), "MASTERFABRIC", font=font(36, 800), fill=WHITE)
     d.text((76, 120), "GenAI Foundations", font=font(80, 800), fill=WHITE)
     x, y = 80, 238
-    for word, col in (("Transformer", ICE), (" · ", GREY), ("LoRA", PURPLE), (" · ", GREY), ("GAN", GREEN), (" · ", GREY), ("RL", ORANGE)):
-        f = font(38, 800)
+    for word, col in (("Transformer", ICE), (" · ", GREY), ("LoRA", PURPLE), (" · ", GREY), ("GAN", GREEN), (" · ", GREY),
+                      ("Diffusion", ICE), (" · ", GREY), ("DPO", PURPLE), (" · ", GREY), ("RL", ORANGE)):
+        f = font(31, 800)
         d.text((x, y), word, font=f, fill=col)
         x += d.textlength(word, font=f)
     d.text((80, 318), "Generative AI building blocks written from the equations in PyTorch,", font=font(26, 500), fill=GREY)
@@ -76,9 +78,14 @@ def main():
         (f"LoRA r=8: {r8['trainable_pct']}% of weights, loss {r8['val_new']:.2f}",
          f"full fine-tuning {runs['full fine-tuning']['val_new']:.2f} · forgetting {r8['val_original']:.2f} vs "
          f"{runs['full fine-tuning']['val_original']:.2f}", PURPLE),
-        (f"GAN: {min(r['modes_covered'] for r in ns)}-{max(r['modes_covered'] for r in ns)} of 8 modes, "
-         f"{min(r['high_quality_pct'] for r in ns):.0f}-{max(r['high_quality_pct'] for r in ns):.0f}% on-mode",
-         "non-saturating loss, 3 seeds · partial mode collapse, measured", GREEN),
+        (f"8 modes: GAN {min(r['final']['modes_covered'] for r in gl['runs'])}-{max(r['final']['modes_covered'] for r in gl['runs'])}"
+         f" · WGAN-GP {min(r['final']['modes_covered'] for r in wg['budgets']['20000']['runs'])}"
+         f" · diffusion {min(r['samplers']['DDPM 1000']['modes_covered'] for r in df['ring'])}",
+         "same ring target, 3 seeds each · GANs at 20k steps · DDIM needs an x0 clamp", GREEN),
+        (lambda b, r: (f"DPO: reward {r['reward']:.3f} → {b['reward']:.3f}",
+                       f"share of real words · filtered SFT best {max(m['reward'] for m in dp['methods'] if m['beta'] is None and m.get('lr')):.3f}"
+                       f" · small β damages the model", PURPLE))(
+            max((m for m in dp["methods"] if m["beta"]), key=lambda m: m["reward"]), dp["methods"][0]),
         (f"CartPole solved in {min(eps)}-{max(eps)} episodes",
          "REINFORCE from scratch, 6 runs · vectorised dynamics in torch", ORANGE),
     ]
@@ -87,7 +94,7 @@ def main():
         d.rounded_rectangle((80, y + 6, 88, y + 62), radius=4, fill=col)
         d.text((106, y), title, font=font(29, 750), fill=WHITE)
         d.text((106, y + 38), sub, font=font(20, 450), fill=GREY)
-        y += 92
+        y += 76
     d.text((80, 820), "github.com/masterfabric/masterfabric-genai-foundations", font=font(30, 700), fill=WHITE)
     im.save(DOCS / "hero.png", optimize=True)
     print("docs/hero.png written")
