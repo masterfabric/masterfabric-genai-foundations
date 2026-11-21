@@ -1,0 +1,109 @@
+{
+  "env": {
+    "torch": "2.15.0",
+    "device": "mps",
+    "machine": "arm64",
+    "python": "3.12.15"
+  },
+  "config": {
+    "vocab_size": 112,
+    "block_size": 128,
+    "n_layer": 4,
+    "n_head": 4,
+    "d_model": 128,
+    "dropout": 0.2
+  },
+  "params": 824064,
+  "train_chars": 103516,
+  "val_chars": 11502,
+  "steps": 1500,
+  "batch": 64,
+  "seconds": 47.6,
+  "tokens_per_s": 257929,
+  "uniform_loss": 4.7185,
+  "best_val": 1.5159,
+  "best_step": 1500,
+  "curve": [
+    {
+      "step": 1,
+      "train": 4.7374,
+      "val": 4.5979
+    },
+    {
+      "step": 100,
+      "train": 2.8244,
+      "val": 2.7924
+    },
+    {
+      "step": 200,
+      "train": 2.5456,
+      "val": 2.5421
+    },
+    {
+      "step": 300,
+      "train": 2.158,
+      "val": 2.2425
+    },
+    {
+      "step": 400,
+      "train": 1.8227,
+      "val": 1.965
+    },
+    {
+      "step": 500,
+      "train": 1.6274,
+      "val": 1.8311
+    },
+    {
+      "step": 600,
+      "train": 1.5135,
+      "val": 1.7192
+    },
+    {
+      "step": 700,
+      "train": 1.4788,
+      "val": 1.6704
+    },
+    {
+      "step": 800,
+      "train": 1.4014,
+      "val": 1.6105
+    },
+    {
+      "step": 900,
+      "train": 1.3165,
+      "val": 1.5841
+    },
+    {
+      "step": 1000,
+      "train": 1.1796,
+      "val": 1.5714
+    },
+    {
+      "step": 1100,
+      "train": 1.1525,
+      "val": 1.5455
+    },
+    {
+      "step": 1200,
+      "train": 1.0714,
+      "val": 1.5289
+    },
+    {
+      "step": 1300,
+      "train": 1.062,
+      "val": 1.5187
+    },
+    {
+      "step": 1400,
+      "train": 1.0481,
+      "val": 1.5167
+    },
+    {
+      "step": 1500,
+      "train": 0.9866,
+      "val": 1.5159
+    }
+  ],
+  "sample": "## Decision\n\n<p align=\"center\"><img src=\"docs/images/cloudera_mapping.png\" alt=\"Decision one the same file\n   feature decision delay\" real minute\" width=\"100%\"></p>\n\n## Latency\n\nThe telemetry and with the detector streaming does a rel from lainst the contract. A reached Spark wither layer and removed on the read retrainator's silver record producer very deled, with watermarks\n(holdout policies a replay is the "
+}
