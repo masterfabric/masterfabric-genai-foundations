@@ -1,0 +1,3657 @@
+{
+  "updates": 120,
+  "envs_per_update": 16,
+  "max_steps": 200,
+  "device": "cpu",
+  "seconds": 23.9,
+  "runs": [
+    {
+      "seed": 0,
+      "baseline": false,
+      "curve": [
+        {
+          "update": 1,
+          "episodes": 16,
+          "mean_return": 27.6
+        },
+        {
+          "update": 2,
+          "episodes": 32,
+          "mean_return": 25.9
+        },
+        {
+          "update": 3,
+          "episodes": 48,
+          "mean_return": 26.4
+        },
+        {
+          "update": 4,
+          "episodes": 64,
+          "mean_return": 36.5
+        },
+        {
+          "update": 5,
+          "episodes": 80,
+          "mean_return": 47.9
+        },
+        {
+          "update": 6,
+          "episodes": 96,
+          "mean_return": 43.9
+        },
+        {
+          "update": 7,
+          "episodes": 112,
+          "mean_return": 51.6
+        },
+        {
+          "update": 8,
+          "episodes": 128,
+          "mean_return": 59.4
+        },
+        {
+          "update": 9,
+          "episodes": 144,
+          "mean_return": 63.9
+        },
+        {
+          "update": 10,
+          "episodes": 160,
+          "mean_return": 73.4
+        },
+        {
+          "update": 11,
+          "episodes": 176,
+          "mean_return": 82.0
+        },
+        {
+          "update": 12,
+          "episodes": 192,
+          "mean_return": 72.8
+        },
+        {
+          "update": 13,
+          "episodes": 208,
+          "mean_return": 101.6
+        },
+        {
+          "update": 14,
+          "episodes": 224,
+          "mean_return": 119.7
+        },
+        {
+          "update": 15,
+          "episodes": 240,
+          "mean_return": 129.6
+        },
+        {
+          "update": 16,
+          "episodes": 256,
+          "mean_return": 148.2
+        },
+        {
+          "update": 17,
+          "episodes": 272,
+          "mean_return": 139.8
+        },
+        {
+          "update": 18,
+          "episodes": 288,
+          "mean_return": 173.3
+        },
+        {
+          "update": 19,
+          "episodes": 304,
+          "mean_return": 176.4
+        },
+        {
+          "update": 20,
+          "episodes": 320,
+          "mean_return": 170.3
+        },
+        {
+          "update": 21,
+          "episodes": 336,
+          "mean_return": 178.1
+        },
+        {
+          "update": 22,
+          "episodes": 352,
+          "mean_return": 162.0
+        },
+        {
+          "update": 23,
+          "episodes": 368,
+          "mean_return": 192.6
+        },
+        {
+          "update": 24,
+          "episodes": 384,
+          "mean_return": 191.5
+        },
+        {
+          "update": 25,
+          "episodes": 400,
+          "mean_return": 195.9
+        },
+        {
+          "update": 26,
+          "episodes": 416,
+          "mean_return": 200.0
+        },
+        {
+          "update": 27,
+          "episodes": 432,
+          "mean_return": 192.8
+        },
+        {
+          "update": 28,
+          "episodes": 448,
+          "mean_return": 200.0
+        },
+        {
+          "update": 29,
+          "episodes": 464,
+          "mean_return": 199.8
+        },
+        {
+          "update": 30,
+          "episodes": 480,
+          "mean_return": 200.0
+        },
+        {
+          "update": 31,
+          "episodes": 496,
+          "mean_return": 200.0
+        },
+        {
+          "update": 32,
+          "episodes": 512,
+          "mean_return": 199.1
+        },
+        {
+          "update": 33,
+          "episodes": 528,
+          "mean_return": 200.0
+        },
+        {
+          "update": 34,
+          "episodes": 544,
+          "mean_return": 200.0
+        },
+        {
+          "update": 35,
+          "episodes": 560,
+          "mean_return": 200.0
+        },
+        {
+          "update": 36,
+          "episodes": 576,
+          "mean_return": 200.0
+        },
+        {
+          "update": 37,
+          "episodes": 592,
+          "mean_return": 200.0
+        },
+        {
+          "update": 38,
+          "episodes": 608,
+          "mean_return": 200.0
+        },
+        {
+          "update": 39,
+          "episodes": 624,
+          "mean_return": 200.0
+        },
+        {
+          "update": 40,
+          "episodes": 640,
+          "mean_return": 200.0
+        },
+        {
+          "update": 41,
+          "episodes": 656,
+          "mean_return": 200.0
+        },
+        {
+          "update": 42,
+          "episodes": 672,
+          "mean_return": 200.0
+        },
+        {
+          "update": 43,
+          "episodes": 688,
+          "mean_return": 200.0
+        },
+        {
+          "update": 44,
+          "episodes": 704,
+          "mean_return": 200.0
+        },
+        {
+          "update": 45,
+          "episodes": 720,
+          "mean_return": 200.0
+        },
+        {
+          "update": 46,
+          "episodes": 736,
+          "mean_return": 200.0
+        },
+        {
+          "update": 47,
+          "episodes": 752,
+          "mean_return": 200.0
+        },
+        {
+          "update": 48,
+          "episodes": 768,
+          "mean_return": 200.0
+        },
+        {
+          "update": 49,
+          "episodes": 784,
+          "mean_return": 200.0
+        },
+        {
+          "update": 50,
+          "episodes": 800,
+          "mean_return": 200.0
+        },
+        {
+          "update": 51,
+          "episodes": 816,
+          "mean_return": 200.0
+        },
+        {
+          "update": 52,
+          "episodes": 832,
+          "mean_return": 200.0
+        },
+        {
+          "update": 53,
+          "episodes": 848,
+          "mean_return": 200.0
+        },
+        {
+          "update": 54,
+          "episodes": 864,
+          "mean_return": 195.3
+        },
+        {
+          "update": 55,
+          "episodes": 880,
+          "mean_return": 200.0
+        },
+        {
+          "update": 56,
+          "episodes": 896,
+          "mean_return": 200.0
+        },
+        {
+          "update": 57,
+          "episodes": 912,
+          "mean_return": 200.0
+        },
+        {
+          "update": 58,
+          "episodes": 928,
+          "mean_return": 200.0
+        },
+        {
+          "update": 59,
+          "episodes": 944,
+          "mean_return": 200.0
+        },
+        {
+          "update": 60,
+          "episodes": 960,
+          "mean_return": 200.0
+        },
+        {
+          "update": 61,
+          "episodes": 976,
+          "mean_return": 200.0
+        },
+        {
+          "update": 62,
+          "episodes": 992,
+          "mean_return": 200.0
+        },
+        {
+          "update": 63,
+          "episodes": 1008,
+          "mean_return": 200.0
+        },
+        {
+          "update": 64,
+          "episodes": 1024,
+          "mean_return": 200.0
+        },
+        {
+          "update": 65,
+          "episodes": 1040,
+          "mean_return": 199.8
+        },
+        {
+          "update": 66,
+          "episodes": 1056,
+          "mean_return": 193.8
+        },
+        {
+          "update": 67,
+          "episodes": 1072,
+          "mean_return": 185.8
+        },
+        {
+          "update": 68,
+          "episodes": 1088,
+          "mean_return": 171.2
+        },
+        {
+          "update": 69,
+          "episodes": 1104,
+          "mean_return": 152.4
+        },
+        {
+          "update": 70,
+          "episodes": 1120,
+          "mean_return": 155.4
+        },
+        {
+          "update": 71,
+          "episodes": 1136,
+          "mean_return": 153.6
+        },
+        {
+          "update": 72,
+          "episodes": 1152,
+          "mean_return": 149.5
+        },
+        {
+          "update": 73,
+          "episodes": 1168,
+          "mean_return": 151.2
+        },
+        {
+          "update": 74,
+          "episodes": 1184,
+          "mean_return": 154.6
+        },
+        {
+          "update": 75,
+          "episodes": 1200,
+          "mean_return": 179.1
+        },
+        {
+          "update": 76,
+          "episodes": 1216,
+          "mean_return": 191.1
+        },
+        {
+          "update": 77,
+          "episodes": 1232,
+          "mean_return": 199.9
+        },
+        {
+          "update": 78,
+          "episodes": 1248,
+          "mean_return": 200.0
+        },
+        {
+          "update": 79,
+          "episodes": 1264,
+          "mean_return": 197.2
+        },
+        {
+          "update": 80,
+          "episodes": 1280,
+          "mean_return": 200.0
+        },
+        {
+          "update": 81,
+          "episodes": 1296,
+          "mean_return": 191.1
+        },
+        {
+          "update": 82,
+          "episodes": 1312,
+          "mean_return": 200.0
+        },
+        {
+          "update": 83,
+          "episodes": 1328,
+          "mean_return": 192.3
+        },
+        {
+          "update": 84,
+          "episodes": 1344,
+          "mean_return": 193.9
+        },
+        {
+          "update": 85,
+          "episodes": 1360,
+          "mean_return": 193.1
+        },
+        {
+          "update": 86,
+          "episodes": 1376,
+          "mean_return": 195.2
+        },
+        {
+          "update": 87,
+          "episodes": 1392,
+          "mean_return": 200.0
+        },
+        {
+          "update": 88,
+          "episodes": 1408,
+          "mean_return": 196.2
+        },
+        {
+          "update": 89,
+          "episodes": 1424,
+          "mean_return": 190.9
+        },
+        {
+          "update": 90,
+          "episodes": 1440,
+          "mean_return": 193.4
+        },
+        {
+          "update": 91,
+          "episodes": 1456,
+          "mean_return": 192.1
+        },
+        {
+          "update": 92,
+          "episodes": 1472,
+          "mean_return": 193.2
+        },
+        {
+          "update": 93,
+          "episodes": 1488,
+          "mean_return": 191.6
+        },
+        {
+          "update": 94,
+          "episodes": 1504,
+          "mean_return": 185.0
+        },
+        {
+          "update": 95,
+          "episodes": 1520,
+          "mean_return": 182.8
+        },
+        {
+          "update": 96,
+          "episodes": 1536,
+          "mean_return": 192.1
+        },
+        {
+          "update": 97,
+          "episodes": 1552,
+          "mean_return": 198.8
+        },
+        {
+          "update": 98,
+          "episodes": 1568,
+          "mean_return": 191.6
+        },
+        {
+          "update": 99,
+          "episodes": 1584,
+          "mean_return": 180.8
+        },
+        {
+          "update": 100,
+          "episodes": 1600,
+          "mean_return": 191.4
+        },
+        {
+          "update": 101,
+          "episodes": 1616,
+          "mean_return": 200.0
+        },
+        {
+          "update": 102,
+          "episodes": 1632,
+          "mean_return": 192.6
+        },
+        {
+          "update": 103,
+          "episodes": 1648,
+          "mean_return": 200.0
+        },
+        {
+          "update": 104,
+          "episodes": 1664,
+          "mean_return": 200.0
+        },
+        {
+          "update": 105,
+          "episodes": 1680,
+          "mean_return": 200.0
+        },
+        {
+          "update": 106,
+          "episodes": 1696,
+          "mean_return": 189.2
+        },
+        {
+          "update": 107,
+          "episodes": 1712,
+          "mean_return": 200.0
+        },
+        {
+          "update": 108,
+          "episodes": 1728,
+          "mean_return": 200.0
+        },
+        {
+          "update": 109,
+          "episodes": 1744,
+          "mean_return": 200.0
+        },
+        {
+          "update": 110,
+          "episodes": 1760,
+          "mean_return": 183.5
+        },
+        {
+          "update": 111,
+          "episodes": 1776,
+          "mean_return": 199.0
+        },
+        {
+          "update": 112,
+          "episodes": 1792,
+          "mean_return": 196.8
+        },
+        {
+          "update": 113,
+          "episodes": 1808,
+          "mean_return": 192.1
+        },
+        {
+          "update": 114,
+          "episodes": 1824,
+          "mean_return": 181.3
+        },
+        {
+          "update": 115,
+          "episodes": 1840,
+          "mean_return": 186.2
+        },
+        {
+          "update": 116,
+          "episodes": 1856,
+          "mean_return": 177.7
+        },
+        {
+          "update": 117,
+          "episodes": 1872,
+          "mean_return": 184.8
+        },
+        {
+          "update": 118,
+          "episodes": 1888,
+          "mean_return": 188.3
+        },
+        {
+          "update": 119,
+          "episodes": 1904,
+          "mean_return": 190.5
+        },
+        {
+          "update": 120,
+          "episodes": 1920,
+          "mean_return": 197.9
+        }
+      ],
+      "final_mean_return": 189.5,
+      "first_update_at_195": 400
+    },
+    {
+      "seed": 1,
+      "baseline": false,
+      "curve": [
+        {
+          "update": 1,
+          "episodes": 16,
+          "mean_return": 24.0
+        },
+        {
+          "update": 2,
+          "episodes": 32,
+          "mean_return": 33.3
+        },
+        {
+          "update": 3,
+          "episodes": 48,
+          "mean_return": 44.4
+        },
+        {
+          "update": 4,
+          "episodes": 64,
+          "mean_return": 55.1
+        },
+        {
+          "update": 5,
+          "episodes": 80,
+          "mean_return": 62.2
+        },
+        {
+          "update": 6,
+          "episodes": 96,
+          "mean_return": 54.6
+        },
+        {
+          "update": 7,
+          "episodes": 112,
+          "mean_return": 60.7
+        },
+        {
+          "update": 8,
+          "episodes": 128,
+          "mean_return": 56.9
+        },
+        {
+          "update": 9,
+          "episodes": 144,
+          "mean_return": 55.4
+        },
+        {
+          "update": 10,
+          "episodes": 160,
+          "mean_return": 58.8
+        },
+        {
+          "update": 11,
+          "episodes": 176,
+          "mean_return": 78.3
+        },
+        {
+          "update": 12,
+          "episodes": 192,
+          "mean_return": 80.0
+        },
+        {
+          "update": 13,
+          "episodes": 208,
+          "mean_return": 92.0
+        },
+        {
+          "update": 14,
+          "episodes": 224,
+          "mean_return": 115.1
+        },
+        {
+          "update": 15,
+          "episodes": 240,
+          "mean_return": 139.1
+        },
+        {
+          "update": 16,
+          "episodes": 256,
+          "mean_return": 161.2
+        },
+        {
+          "update": 17,
+          "episodes": 272,
+          "mean_return": 146.9
+        },
+        {
+          "update": 18,
+          "episodes": 288,
+          "mean_return": 162.2
+        },
+        {
+          "update": 19,
+          "episodes": 304,
+          "mean_return": 168.6
+        },
+        {
+          "update": 20,
+          "episodes": 320,
+          "mean_return": 168.5
+        },
+        {
+          "update": 21,
+          "episodes": 336,
+          "mean_return": 193.1
+        },
+        {
+          "update": 22,
+          "episodes": 352,
+          "mean_return": 195.2
+        },
+        {
+          "update": 23,
+          "episodes": 368,
+          "mean_return": 183.1
+        },
+        {
+          "update": 24,
+          "episodes": 384,
+          "mean_return": 198.1
+        },
+        {
+          "update": 25,
+          "episodes": 400,
+          "mean_return": 184.8
+        },
+        {
+          "update": 26,
+          "episodes": 416,
+          "mean_return": 200.0
+        },
+        {
+          "update": 27,
+          "episodes": 432,
+          "mean_return": 200.0
+        },
+        {
+          "update": 28,
+          "episodes": 448,
+          "mean_return": 198.8
+        },
+        {
+          "update": 29,
+          "episodes": 464,
+          "mean_return": 200.0
+        },
+        {
+          "update": 30,
+          "episodes": 480,
+          "mean_return": 197.1
+        },
+        {
+          "update": 31,
+          "episodes": 496,
+          "mean_return": 199.5
+        },
+        {
+          "update": 32,
+          "episodes": 512,
+          "mean_return": 198.5
+        },
+        {
+          "update": 33,
+          "episodes": 528,
+          "mean_return": 199.6
+        },
+        {
+          "update": 34,
+          "episodes": 544,
+          "mean_return": 196.9
+        },
+        {
+          "update": 35,
+          "episodes": 560,
+          "mean_return": 200.0
+        },
+        {
+          "update": 36,
+          "episodes": 576,
+          "mean_return": 197.5
+        },
+        {
+          "update": 37,
+          "episodes": 592,
+          "mean_return": 200.0
+        },
+        {
+          "update": 38,
+          "episodes": 608,
+          "mean_return": 190.8
+        },
+        {
+          "update": 39,
+          "episodes": 624,
+          "mean_return": 200.0
+        },
+        {
+          "update": 40,
+          "episodes": 640,
+          "mean_return": 193.1
+        },
+        {
+          "update": 41,
+          "episodes": 656,
+          "mean_return": 200.0
+        },
+        {
+          "update": 42,
+          "episodes": 672,
+          "mean_return": 200.0
+        },
+        {
+          "update": 43,
+          "episodes": 688,
+          "mean_return": 200.0
+        },
+        {
+          "update": 44,
+          "episodes": 704,
+          "mean_return": 200.0
+        },
+        {
+          "update": 45,
+          "episodes": 720,
+          "mean_return": 200.0
+        },
+        {
+          "update": 46,
+          "episodes": 736,
+          "mean_return": 200.0
+        },
+        {
+          "update": 47,
+          "episodes": 752,
+          "mean_return": 199.4
+        },
+        {
+          "update": 48,
+          "episodes": 768,
+          "mean_return": 200.0
+        },
+        {
+          "update": 49,
+          "episodes": 784,
+          "mean_return": 200.0
+        },
+        {
+          "update": 50,
+          "episodes": 800,
+          "mean_return": 200.0
+        },
+        {
+          "update": 51,
+          "episodes": 816,
+          "mean_return": 200.0
+        },
+        {
+          "update": 52,
+          "episodes": 832,
+          "mean_return": 200.0
+        },
+        {
+          "update": 53,
+          "episodes": 848,
+          "mean_return": 200.0
+        },
+        {
+          "update": 54,
+          "episodes": 864,
+          "mean_return": 200.0
+        },
+        {
+          "update": 55,
+          "episodes": 880,
+          "mean_return": 200.0
+        },
+        {
+          "update": 56,
+          "episodes": 896,
+          "mean_return": 200.0
+        },
+        {
+          "update": 57,
+          "episodes": 912,
+          "mean_return": 200.0
+        },
+        {
+          "update": 58,
+          "episodes": 928,
+          "mean_return": 200.0
+        },
+        {
+          "update": 59,
+          "episodes": 944,
+          "mean_return": 197.8
+        },
+        {
+          "update": 60,
+          "episodes": 960,
+          "mean_return": 200.0
+        },
+        {
+          "update": 61,
+          "episodes": 976,
+          "mean_return": 198.6
+        },
+        {
+          "update": 62,
+          "episodes": 992,
+          "mean_return": 200.0
+        },
+        {
+          "update": 63,
+          "episodes": 1008,
+          "mean_return": 193.6
+        },
+        {
+          "update": 64,
+          "episodes": 1024,
+          "mean_return": 198.7
+        },
+        {
+          "update": 65,
+          "episodes": 1040,
+          "mean_return": 196.6
+        },
+        {
+          "update": 66,
+          "episodes": 1056,
+          "mean_return": 198.8
+        },
+        {
+          "update": 67,
+          "episodes": 1072,
+          "mean_return": 199.4
+        },
+        {
+          "update": 68,
+          "episodes": 1088,
+          "mean_return": 200.0
+        },
+        {
+          "update": 69,
+          "episodes": 1104,
+          "mean_return": 200.0
+        },
+        {
+          "update": 70,
+          "episodes": 1120,
+          "mean_return": 200.0
+        },
+        {
+          "update": 71,
+          "episodes": 1136,
+          "mean_return": 200.0
+        },
+        {
+          "update": 72,
+          "episodes": 1152,
+          "mean_return": 200.0
+        },
+        {
+          "update": 73,
+          "episodes": 1168,
+          "mean_return": 200.0
+        },
+        {
+          "update": 74,
+          "episodes": 1184,
+          "mean_return": 200.0
+        },
+        {
+          "update": 75,
+          "episodes": 1200,
+          "mean_return": 200.0
+        },
+        {
+          "update": 76,
+          "episodes": 1216,
+          "mean_return": 200.0
+        },
+        {
+          "update": 77,
+          "episodes": 1232,
+          "mean_return": 200.0
+        },
+        {
+          "update": 78,
+          "episodes": 1248,
+          "mean_return": 200.0
+        },
+        {
+          "update": 79,
+          "episodes": 1264,
+          "mean_return": 200.0
+        },
+        {
+          "update": 80,
+          "episodes": 1280,
+          "mean_return": 200.0
+        },
+        {
+          "update": 81,
+          "episodes": 1296,
+          "mean_return": 200.0
+        },
+        {
+          "update": 82,
+          "episodes": 1312,
+          "mean_return": 200.0
+        },
+        {
+          "update": 83,
+          "episodes": 1328,
+          "mean_return": 200.0
+        },
+        {
+          "update": 84,
+          "episodes": 1344,
+          "mean_return": 200.0
+        },
+        {
+          "update": 85,
+          "episodes": 1360,
+          "mean_return": 200.0
+        },
+        {
+          "update": 86,
+          "episodes": 1376,
+          "mean_return": 200.0
+        },
+        {
+          "update": 87,
+          "episodes": 1392,
+          "mean_return": 200.0
+        },
+        {
+          "update": 88,
+          "episodes": 1408,
+          "mean_return": 200.0
+        },
+        {
+          "update": 89,
+          "episodes": 1424,
+          "mean_return": 199.7
+        },
+        {
+          "update": 90,
+          "episodes": 1440,
+          "mean_return": 200.0
+        },
+        {
+          "update": 91,
+          "episodes": 1456,
+          "mean_return": 200.0
+        },
+        {
+          "update": 92,
+          "episodes": 1472,
+          "mean_return": 199.7
+        },
+        {
+          "update": 93,
+          "episodes": 1488,
+          "mean_return": 199.6
+        },
+        {
+          "update": 94,
+          "episodes": 1504,
+          "mean_return": 200.0
+        },
+        {
+          "update": 95,
+          "episodes": 1520,
+          "mean_return": 200.0
+        },
+        {
+          "update": 96,
+          "episodes": 1536,
+          "mean_return": 195.8
+        },
+        {
+          "update": 97,
+          "episodes": 1552,
+          "mean_return": 200.0
+        },
+        {
+          "update": 98,
+          "episodes": 1568,
+          "mean_return": 200.0
+        },
+        {
+          "update": 99,
+          "episodes": 1584,
+          "mean_return": 197.1
+        },
+        {
+          "update": 100,
+          "episodes": 1600,
+          "mean_return": 200.0
+        },
+        {
+          "update": 101,
+          "episodes": 1616,
+          "mean_return": 200.0
+        },
+        {
+          "update": 102,
+          "episodes": 1632,
+          "mean_return": 200.0
+        },
+        {
+          "update": 103,
+          "episodes": 1648,
+          "mean_return": 200.0
+        },
+        {
+          "update": 104,
+          "episodes": 1664,
+          "mean_return": 200.0
+        },
+        {
+          "update": 105,
+          "episodes": 1680,
+          "mean_return": 199.9
+        },
+        {
+          "update": 106,
+          "episodes": 1696,
+          "mean_return": 199.8
+        },
+        {
+          "update": 107,
+          "episodes": 1712,
+          "mean_return": 199.4
+        },
+        {
+          "update": 108,
+          "episodes": 1728,
+          "mean_return": 200.0
+        },
+        {
+          "update": 109,
+          "episodes": 1744,
+          "mean_return": 200.0
+        },
+        {
+          "update": 110,
+          "episodes": 1760,
+          "mean_return": 200.0
+        },
+        {
+          "update": 111,
+          "episodes": 1776,
+          "mean_return": 200.0
+        },
+        {
+          "update": 112,
+          "episodes": 1792,
+          "mean_return": 200.0
+        },
+        {
+          "update": 113,
+          "episodes": 1808,
+          "mean_return": 188.1
+        },
+        {
+          "update": 114,
+          "episodes": 1824,
+          "mean_return": 200.0
+        },
+        {
+          "update": 115,
+          "episodes": 1840,
+          "mean_return": 200.0
+        },
+        {
+          "update": 116,
+          "episodes": 1856,
+          "mean_return": 200.0
+        },
+        {
+          "update": 117,
+          "episodes": 1872,
+          "mean_return": 200.0
+        },
+        {
+          "update": 118,
+          "episodes": 1888,
+          "mean_return": 199.8
+        },
+        {
+          "update": 119,
+          "episodes": 1904,
+          "mean_return": 200.0
+        },
+        {
+          "update": 120,
+          "episodes": 1920,
+          "mean_return": 200.0
+        }
+      ],
+      "final_mean_return": 198.8,
+      "first_update_at_195": 352
+    },
+    {
+      "seed": 2,
+      "baseline": false,
+      "curve": [
+        {
+          "update": 1,
+          "episodes": 16,
+          "mean_return": 20.5
+        },
+        {
+          "update": 2,
+          "episodes": 32,
+          "mean_return": 33.7
+        },
+        {
+          "update": 3,
+          "episodes": 48,
+          "mean_return": 30.6
+        },
+        {
+          "update": 4,
+          "episodes": 64,
+          "mean_return": 39.5
+        },
+        {
+          "update": 5,
+          "episodes": 80,
+          "mean_return": 43.1
+        },
+        {
+          "update": 6,
+          "episodes": 96,
+          "mean_return": 50.6
+        },
+        {
+          "update": 7,
+          "episodes": 112,
+          "mean_return": 41.8
+        },
+        {
+          "update": 8,
+          "episodes": 128,
+          "mean_return": 57.2
+        },
+        {
+          "update": 9,
+          "episodes": 144,
+          "mean_return": 50.8
+        },
+        {
+          "update": 10,
+          "episodes": 160,
+          "mean_return": 59.4
+        },
+        {
+          "update": 11,
+          "episodes": 176,
+          "mean_return": 72.4
+        },
+        {
+          "update": 12,
+          "episodes": 192,
+          "mean_return": 77.7
+        },
+        {
+          "update": 13,
+          "episodes": 208,
+          "mean_return": 62.9
+        },
+        {
+          "update": 14,
+          "episodes": 224,
+          "mean_return": 76.2
+        },
+        {
+          "update": 15,
+          "episodes": 240,
+          "mean_return": 79.6
+        },
+        {
+          "update": 16,
+          "episodes": 256,
+          "mean_return": 88.2
+        },
+        {
+          "update": 17,
+          "episodes": 272,
+          "mean_return": 84.2
+        },
+        {
+          "update": 18,
+          "episodes": 288,
+          "mean_return": 96.6
+        },
+        {
+          "update": 19,
+          "episodes": 304,
+          "mean_return": 119.1
+        },
+        {
+          "update": 20,
+          "episodes": 320,
+          "mean_return": 141.3
+        },
+        {
+          "update": 21,
+          "episodes": 336,
+          "mean_return": 155.1
+        },
+        {
+          "update": 22,
+          "episodes": 352,
+          "mean_return": 154.4
+        },
+        {
+          "update": 23,
+          "episodes": 368,
+          "mean_return": 158.1
+        },
+        {
+          "update": 24,
+          "episodes": 384,
+          "mean_return": 161.5
+        },
+        {
+          "update": 25,
+          "episodes": 400,
+          "mean_return": 160.4
+        },
+        {
+          "update": 26,
+          "episodes": 416,
+          "mean_return": 178.0
+        },
+        {
+          "update": 27,
+          "episodes": 432,
+          "mean_return": 194.8
+        },
+        {
+          "update": 28,
+          "episodes": 448,
+          "mean_return": 170.4
+        },
+        {
+          "update": 29,
+          "episodes": 464,
+          "mean_return": 173.3
+        },
+        {
+          "update": 30,
+          "episodes": 480,
+          "mean_return": 186.3
+        },
+        {
+          "update": 31,
+          "episodes": 496,
+          "mean_return": 178.2
+        },
+        {
+          "update": 32,
+          "episodes": 512,
+          "mean_return": 185.4
+        },
+        {
+          "update": 33,
+          "episodes": 528,
+          "mean_return": 187.9
+        },
+        {
+          "update": 34,
+          "episodes": 544,
+          "mean_return": 189.9
+        },
+        {
+          "update": 35,
+          "episodes": 560,
+          "mean_return": 199.2
+        },
+        {
+          "update": 36,
+          "episodes": 576,
+          "mean_return": 192.4
+        },
+        {
+          "update": 37,
+          "episodes": 592,
+          "mean_return": 196.1
+        },
+        {
+          "update": 38,
+          "episodes": 608,
+          "mean_return": 196.5
+        },
+        {
+          "update": 39,
+          "episodes": 624,
+          "mean_return": 191.4
+        },
+        {
+          "update": 40,
+          "episodes": 640,
+          "mean_return": 180.4
+        },
+        {
+          "update": 41,
+          "episodes": 656,
+          "mean_return": 185.2
+        },
+        {
+          "update": 42,
+          "episodes": 672,
+          "mean_return": 187.3
+        },
+        {
+          "update": 43,
+          "episodes": 688,
+          "mean_return": 187.9
+        },
+        {
+          "update": 44,
+          "episodes": 704,
+          "mean_return": 190.1
+        },
+        {
+          "update": 45,
+          "episodes": 720,
+          "mean_return": 199.1
+        },
+        {
+          "update": 46,
+          "episodes": 736,
+          "mean_return": 199.9
+        },
+        {
+          "update": 47,
+          "episodes": 752,
+          "mean_return": 198.4
+        },
+        {
+          "update": 48,
+          "episodes": 768,
+          "mean_return": 200.0
+        },
+        {
+          "update": 49,
+          "episodes": 784,
+          "mean_return": 200.0
+        },
+        {
+          "update": 50,
+          "episodes": 800,
+          "mean_return": 199.2
+        },
+        {
+          "update": 51,
+          "episodes": 816,
+          "mean_return": 199.9
+        },
+        {
+          "update": 52,
+          "episodes": 832,
+          "mean_return": 197.8
+        },
+        {
+          "update": 53,
+          "episodes": 848,
+          "mean_return": 200.0
+        },
+        {
+          "update": 54,
+          "episodes": 864,
+          "mean_return": 199.6
+        },
+        {
+          "update": 55,
+          "episodes": 880,
+          "mean_return": 200.0
+        },
+        {
+          "update": 56,
+          "episodes": 896,
+          "mean_return": 200.0
+        },
+        {
+          "update": 57,
+          "episodes": 912,
+          "mean_return": 197.4
+        },
+        {
+          "update": 58,
+          "episodes": 928,
+          "mean_return": 200.0
+        },
+        {
+          "update": 59,
+          "episodes": 944,
+          "mean_return": 193.2
+        },
+        {
+          "update": 60,
+          "episodes": 960,
+          "mean_return": 200.0
+        },
+        {
+          "update": 61,
+          "episodes": 976,
+          "mean_return": 198.6
+        },
+        {
+          "update": 62,
+          "episodes": 992,
+          "mean_return": 197.4
+        },
+        {
+          "update": 63,
+          "episodes": 1008,
+          "mean_return": 200.0
+        },
+        {
+          "update": 64,
+          "episodes": 1024,
+          "mean_return": 199.9
+        },
+        {
+          "update": 65,
+          "episodes": 1040,
+          "mean_return": 200.0
+        },
+        {
+          "update": 66,
+          "episodes": 1056,
+          "mean_return": 196.8
+        },
+        {
+          "update": 67,
+          "episodes": 1072,
+          "mean_return": 200.0
+        },
+        {
+          "update": 68,
+          "episodes": 1088,
+          "mean_return": 200.0
+        },
+        {
+          "update": 69,
+          "episodes": 1104,
+          "mean_return": 200.0
+        },
+        {
+          "update": 70,
+          "episodes": 1120,
+          "mean_return": 200.0
+        },
+        {
+          "update": 71,
+          "episodes": 1136,
+          "mean_return": 200.0
+        },
+        {
+          "update": 72,
+          "episodes": 1152,
+          "mean_return": 200.0
+        },
+        {
+          "update": 73,
+          "episodes": 1168,
+          "mean_return": 200.0
+        },
+        {
+          "update": 74,
+          "episodes": 1184,
+          "mean_return": 200.0
+        },
+        {
+          "update": 75,
+          "episodes": 1200,
+          "mean_return": 200.0
+        },
+        {
+          "update": 76,
+          "episodes": 1216,
+          "mean_return": 200.0
+        },
+        {
+          "update": 77,
+          "episodes": 1232,
+          "mean_return": 200.0
+        },
+        {
+          "update": 78,
+          "episodes": 1248,
+          "mean_return": 200.0
+        },
+        {
+          "update": 79,
+          "episodes": 1264,
+          "mean_return": 200.0
+        },
+        {
+          "update": 80,
+          "episodes": 1280,
+          "mean_return": 200.0
+        },
+        {
+          "update": 81,
+          "episodes": 1296,
+          "mean_return": 200.0
+        },
+        {
+          "update": 82,
+          "episodes": 1312,
+          "mean_return": 200.0
+        },
+        {
+          "update": 83,
+          "episodes": 1328,
+          "mean_return": 200.0
+        },
+        {
+          "update": 84,
+          "episodes": 1344,
+          "mean_return": 198.6
+        },
+        {
+          "update": 85,
+          "episodes": 1360,
+          "mean_return": 200.0
+        },
+        {
+          "update": 86,
+          "episodes": 1376,
+          "mean_return": 200.0
+        },
+        {
+          "update": 87,
+          "episodes": 1392,
+          "mean_return": 200.0
+        },
+        {
+          "update": 88,
+          "episodes": 1408,
+          "mean_return": 200.0
+        },
+        {
+          "update": 89,
+          "episodes": 1424,
+          "mean_return": 200.0
+        },
+        {
+          "update": 90,
+          "episodes": 1440,
+          "mean_return": 200.0
+        },
+        {
+          "update": 91,
+          "episodes": 1456,
+          "mean_return": 200.0
+        },
+        {
+          "update": 92,
+          "episodes": 1472,
+          "mean_return": 200.0
+        },
+        {
+          "update": 93,
+          "episodes": 1488,
+          "mean_return": 200.0
+        },
+        {
+          "update": 94,
+          "episodes": 1504,
+          "mean_return": 200.0
+        },
+        {
+          "update": 95,
+          "episodes": 1520,
+          "mean_return": 200.0
+        },
+        {
+          "update": 96,
+          "episodes": 1536,
+          "mean_return": 200.0
+        },
+        {
+          "update": 97,
+          "episodes": 1552,
+          "mean_return": 200.0
+        },
+        {
+          "update": 98,
+          "episodes": 1568,
+          "mean_return": 200.0
+        },
+        {
+          "update": 99,
+          "episodes": 1584,
+          "mean_return": 200.0
+        },
+        {
+          "update": 100,
+          "episodes": 1600,
+          "mean_return": 200.0
+        },
+        {
+          "update": 101,
+          "episodes": 1616,
+          "mean_return": 199.8
+        },
+        {
+          "update": 102,
+          "episodes": 1632,
+          "mean_return": 200.0
+        },
+        {
+          "update": 103,
+          "episodes": 1648,
+          "mean_return": 200.0
+        },
+        {
+          "update": 104,
+          "episodes": 1664,
+          "mean_return": 200.0
+        },
+        {
+          "update": 105,
+          "episodes": 1680,
+          "mean_return": 199.4
+        },
+        {
+          "update": 106,
+          "episodes": 1696,
+          "mean_return": 200.0
+        },
+        {
+          "update": 107,
+          "episodes": 1712,
+          "mean_return": 200.0
+        },
+        {
+          "update": 108,
+          "episodes": 1728,
+          "mean_return": 200.0
+        },
+        {
+          "update": 109,
+          "episodes": 1744,
+          "mean_return": 199.7
+        },
+        {
+          "update": 110,
+          "episodes": 1760,
+          "mean_return": 200.0
+        },
+        {
+          "update": 111,
+          "episodes": 1776,
+          "mean_return": 196.2
+        },
+        {
+          "update": 112,
+          "episodes": 1792,
+          "mean_return": 200.0
+        },
+        {
+          "update": 113,
+          "episodes": 1808,
+          "mean_return": 195.8
+        },
+        {
+          "update": 114,
+          "episodes": 1824,
+          "mean_return": 200.0
+        },
+        {
+          "update": 115,
+          "episodes": 1840,
+          "mean_return": 200.0
+        },
+        {
+          "update": 116,
+          "episodes": 1856,
+          "mean_return": 195.6
+        },
+        {
+          "update": 117,
+          "episodes": 1872,
+          "mean_return": 200.0
+        },
+        {
+          "update": 118,
+          "episodes": 1888,
+          "mean_return": 200.0
+        },
+        {
+          "update": 119,
+          "episodes": 1904,
+          "mean_return": 200.0
+        },
+        {
+          "update": 120,
+          "episodes": 1920,
+          "mean_return": 200.0
+        }
+      ],
+      "final_mean_return": 198.8,
+      "first_update_at_195": 560
+    },
+    {
+      "seed": 0,
+      "baseline": true,
+      "curve": [
+        {
+          "update": 1,
+          "episodes": 16,
+          "mean_return": 27.6
+        },
+        {
+          "update": 2,
+          "episodes": 32,
+          "mean_return": 25.9
+        },
+        {
+          "update": 3,
+          "episodes": 48,
+          "mean_return": 26.4
+        },
+        {
+          "update": 4,
+          "episodes": 64,
+          "mean_return": 37.3
+        },
+        {
+          "update": 5,
+          "episodes": 80,
+          "mean_return": 46.4
+        },
+        {
+          "update": 6,
+          "episodes": 96,
+          "mean_return": 43.2
+        },
+        {
+          "update": 7,
+          "episodes": 112,
+          "mean_return": 55.7
+        },
+        {
+          "update": 8,
+          "episodes": 128,
+          "mean_return": 60.9
+        },
+        {
+          "update": 9,
+          "episodes": 144,
+          "mean_return": 64.9
+        },
+        {
+          "update": 10,
+          "episodes": 160,
+          "mean_return": 59.2
+        },
+        {
+          "update": 11,
+          "episodes": 176,
+          "mean_return": 65.7
+        },
+        {
+          "update": 12,
+          "episodes": 192,
+          "mean_return": 80.8
+        },
+        {
+          "update": 13,
+          "episodes": 208,
+          "mean_return": 93.7
+        },
+        {
+          "update": 14,
+          "episodes": 224,
+          "mean_return": 84.1
+        },
+        {
+          "update": 15,
+          "episodes": 240,
+          "mean_return": 105.8
+        },
+        {
+          "update": 16,
+          "episodes": 256,
+          "mean_return": 106.4
+        },
+        {
+          "update": 17,
+          "episodes": 272,
+          "mean_return": 143.8
+        },
+        {
+          "update": 18,
+          "episodes": 288,
+          "mean_return": 171.1
+        },
+        {
+          "update": 19,
+          "episodes": 304,
+          "mean_return": 181.6
+        },
+        {
+          "update": 20,
+          "episodes": 320,
+          "mean_return": 141.4
+        },
+        {
+          "update": 21,
+          "episodes": 336,
+          "mean_return": 156.5
+        },
+        {
+          "update": 22,
+          "episodes": 352,
+          "mean_return": 168.7
+        },
+        {
+          "update": 23,
+          "episodes": 368,
+          "mean_return": 148.3
+        },
+        {
+          "update": 24,
+          "episodes": 384,
+          "mean_return": 133.1
+        },
+        {
+          "update": 25,
+          "episodes": 400,
+          "mean_return": 160.3
+        },
+        {
+          "update": 26,
+          "episodes": 416,
+          "mean_return": 176.1
+        },
+        {
+          "update": 27,
+          "episodes": 432,
+          "mean_return": 193.9
+        },
+        {
+          "update": 28,
+          "episodes": 448,
+          "mean_return": 184.0
+        },
+        {
+          "update": 29,
+          "episodes": 464,
+          "mean_return": 194.1
+        },
+        {
+          "update": 30,
+          "episodes": 480,
+          "mean_return": 195.3
+        },
+        {
+          "update": 31,
+          "episodes": 496,
+          "mean_return": 200.0
+        },
+        {
+          "update": 32,
+          "episodes": 512,
+          "mean_return": 200.0
+        },
+        {
+          "update": 33,
+          "episodes": 528,
+          "mean_return": 200.0
+        },
+        {
+          "update": 34,
+          "episodes": 544,
+          "mean_return": 200.0
+        },
+        {
+          "update": 35,
+          "episodes": 560,
+          "mean_return": 200.0
+        },
+        {
+          "update": 36,
+          "episodes": 576,
+          "mean_return": 200.0
+        },
+        {
+          "update": 37,
+          "episodes": 592,
+          "mean_return": 200.0
+        },
+        {
+          "update": 38,
+          "episodes": 608,
+          "mean_return": 200.0
+        },
+        {
+          "update": 39,
+          "episodes": 624,
+          "mean_return": 200.0
+        },
+        {
+          "update": 40,
+          "episodes": 640,
+          "mean_return": 200.0
+        },
+        {
+          "update": 41,
+          "episodes": 656,
+          "mean_return": 200.0
+        },
+        {
+          "update": 42,
+          "episodes": 672,
+          "mean_return": 200.0
+        },
+        {
+          "update": 43,
+          "episodes": 688,
+          "mean_return": 200.0
+        },
+        {
+          "update": 44,
+          "episodes": 704,
+          "mean_return": 200.0
+        },
+        {
+          "update": 45,
+          "episodes": 720,
+          "mean_return": 200.0
+        },
+        {
+          "update": 46,
+          "episodes": 736,
+          "mean_return": 200.0
+        },
+        {
+          "update": 47,
+          "episodes": 752,
+          "mean_return": 200.0
+        },
+        {
+          "update": 48,
+          "episodes": 768,
+          "mean_return": 200.0
+        },
+        {
+          "update": 49,
+          "episodes": 784,
+          "mean_return": 200.0
+        },
+        {
+          "update": 50,
+          "episodes": 800,
+          "mean_return": 200.0
+        },
+        {
+          "update": 51,
+          "episodes": 816,
+          "mean_return": 200.0
+        },
+        {
+          "update": 52,
+          "episodes": 832,
+          "mean_return": 200.0
+        },
+        {
+          "update": 53,
+          "episodes": 848,
+          "mean_return": 200.0
+        },
+        {
+          "update": 54,
+          "episodes": 864,
+          "mean_return": 200.0
+        },
+        {
+          "update": 55,
+          "episodes": 880,
+          "mean_return": 200.0
+        },
+        {
+          "update": 56,
+          "episodes": 896,
+          "mean_return": 200.0
+        },
+        {
+          "update": 57,
+          "episodes": 912,
+          "mean_return": 200.0
+        },
+        {
+          "update": 58,
+          "episodes": 928,
+          "mean_return": 200.0
+        },
+        {
+          "update": 59,
+          "episodes": 944,
+          "mean_return": 200.0
+        },
+        {
+          "update": 60,
+          "episodes": 960,
+          "mean_return": 200.0
+        },
+        {
+          "update": 61,
+          "episodes": 976,
+          "mean_return": 200.0
+        },
+        {
+          "update": 62,
+          "episodes": 992,
+          "mean_return": 200.0
+        },
+        {
+          "update": 63,
+          "episodes": 1008,
+          "mean_return": 200.0
+        },
+        {
+          "update": 64,
+          "episodes": 1024,
+          "mean_return": 200.0
+        },
+        {
+          "update": 65,
+          "episodes": 1040,
+          "mean_return": 200.0
+        },
+        {
+          "update": 66,
+          "episodes": 1056,
+          "mean_return": 200.0
+        },
+        {
+          "update": 67,
+          "episodes": 1072,
+          "mean_return": 200.0
+        },
+        {
+          "update": 68,
+          "episodes": 1088,
+          "mean_return": 199.7
+        },
+        {
+          "update": 69,
+          "episodes": 1104,
+          "mean_return": 200.0
+        },
+        {
+          "update": 70,
+          "episodes": 1120,
+          "mean_return": 197.6
+        },
+        {
+          "update": 71,
+          "episodes": 1136,
+          "mean_return": 195.5
+        },
+        {
+          "update": 72,
+          "episodes": 1152,
+          "mean_return": 190.0
+        },
+        {
+          "update": 73,
+          "episodes": 1168,
+          "mean_return": 194.9
+        },
+        {
+          "update": 74,
+          "episodes": 1184,
+          "mean_return": 193.8
+        },
+        {
+          "update": 75,
+          "episodes": 1200,
+          "mean_return": 194.4
+        },
+        {
+          "update": 76,
+          "episodes": 1216,
+          "mean_return": 199.9
+        },
+        {
+          "update": 77,
+          "episodes": 1232,
+          "mean_return": 200.0
+        },
+        {
+          "update": 78,
+          "episodes": 1248,
+          "mean_return": 200.0
+        },
+        {
+          "update": 79,
+          "episodes": 1264,
+          "mean_return": 200.0
+        },
+        {
+          "update": 80,
+          "episodes": 1280,
+          "mean_return": 200.0
+        },
+        {
+          "update": 81,
+          "episodes": 1296,
+          "mean_return": 200.0
+        },
+        {
+          "update": 82,
+          "episodes": 1312,
+          "mean_return": 200.0
+        },
+        {
+          "update": 83,
+          "episodes": 1328,
+          "mean_return": 193.8
+        },
+        {
+          "update": 84,
+          "episodes": 1344,
+          "mean_return": 194.4
+        },
+        {
+          "update": 85,
+          "episodes": 1360,
+          "mean_return": 189.2
+        },
+        {
+          "update": 86,
+          "episodes": 1376,
+          "mean_return": 184.7
+        },
+        {
+          "update": 87,
+          "episodes": 1392,
+          "mean_return": 183.0
+        },
+        {
+          "update": 88,
+          "episodes": 1408,
+          "mean_return": 190.2
+        },
+        {
+          "update": 89,
+          "episodes": 1424,
+          "mean_return": 194.9
+        },
+        {
+          "update": 90,
+          "episodes": 1440,
+          "mean_return": 200.0
+        },
+        {
+          "update": 91,
+          "episodes": 1456,
+          "mean_return": 200.0
+        },
+        {
+          "update": 92,
+          "episodes": 1472,
+          "mean_return": 200.0
+        },
+        {
+          "update": 93,
+          "episodes": 1488,
+          "mean_return": 200.0
+        },
+        {
+          "update": 94,
+          "episodes": 1504,
+          "mean_return": 200.0
+        },
+        {
+          "update": 95,
+          "episodes": 1520,
+          "mean_return": 200.0
+        },
+        {
+          "update": 96,
+          "episodes": 1536,
+          "mean_return": 200.0
+        },
+        {
+          "update": 97,
+          "episodes": 1552,
+          "mean_return": 200.0
+        },
+        {
+          "update": 98,
+          "episodes": 1568,
+          "mean_return": 196.1
+        },
+        {
+          "update": 99,
+          "episodes": 1584,
+          "mean_return": 197.4
+        },
+        {
+          "update": 100,
+          "episodes": 1600,
+          "mean_return": 199.4
+        },
+        {
+          "update": 101,
+          "episodes": 1616,
+          "mean_return": 195.8
+        },
+        {
+          "update": 102,
+          "episodes": 1632,
+          "mean_return": 200.0
+        },
+        {
+          "update": 103,
+          "episodes": 1648,
+          "mean_return": 200.0
+        },
+        {
+          "update": 104,
+          "episodes": 1664,
+          "mean_return": 200.0
+        },
+        {
+          "update": 105,
+          "episodes": 1680,
+          "mean_return": 200.0
+        },
+        {
+          "update": 106,
+          "episodes": 1696,
+          "mean_return": 200.0
+        },
+        {
+          "update": 107,
+          "episodes": 1712,
+          "mean_return": 200.0
+        },
+        {
+          "update": 108,
+          "episodes": 1728,
+          "mean_return": 198.8
+        },
+        {
+          "update": 109,
+          "episodes": 1744,
+          "mean_return": 193.6
+        },
+        {
+          "update": 110,
+          "episodes": 1760,
+          "mean_return": 182.3
+        },
+        {
+          "update": 111,
+          "episodes": 1776,
+          "mean_return": 194.9
+        },
+        {
+          "update": 112,
+          "episodes": 1792,
+          "mean_return": 200.0
+        },
+        {
+          "update": 113,
+          "episodes": 1808,
+          "mean_return": 200.0
+        },
+        {
+          "update": 114,
+          "episodes": 1824,
+          "mean_return": 200.0
+        },
+        {
+          "update": 115,
+          "episodes": 1840,
+          "mean_return": 196.9
+        },
+        {
+          "update": 116,
+          "episodes": 1856,
+          "mean_return": 196.2
+        },
+        {
+          "update": 117,
+          "episodes": 1872,
+          "mean_return": 198.1
+        },
+        {
+          "update": 118,
+          "episodes": 1888,
+          "mean_return": 200.0
+        },
+        {
+          "update": 119,
+          "episodes": 1904,
+          "mean_return": 199.5
+        },
+        {
+          "update": 120,
+          "episodes": 1920,
+          "mean_return": 200.0
+        }
+      ],
+      "final_mean_return": 198.6,
+      "first_update_at_195": 480
+    },
+    {
+      "seed": 1,
+      "baseline": true,
+      "curve": [
+        {
+          "update": 1,
+          "episodes": 16,
+          "mean_return": 24.0
+        },
+        {
+          "update": 2,
+          "episodes": 32,
+          "mean_return": 33.3
+        },
+        {
+          "update": 3,
+          "episodes": 48,
+          "mean_return": 44.4
+        },
+        {
+          "update": 4,
+          "episodes": 64,
+          "mean_return": 55.1
+        },
+        {
+          "update": 5,
+          "episodes": 80,
+          "mean_return": 62.2
+        },
+        {
+          "update": 6,
+          "episodes": 96,
+          "mean_return": 54.6
+        },
+        {
+          "update": 7,
+          "episodes": 112,
+          "mean_return": 60.7
+        },
+        {
+          "update": 8,
+          "episodes": 128,
+          "mean_return": 57.4
+        },
+        {
+          "update": 9,
+          "episodes": 144,
+          "mean_return": 55.4
+        },
+        {
+          "update": 10,
+          "episodes": 160,
+          "mean_return": 59.7
+        },
+        {
+          "update": 11,
+          "episodes": 176,
+          "mean_return": 75.4
+        },
+        {
+          "update": 12,
+          "episodes": 192,
+          "mean_return": 83.1
+        },
+        {
+          "update": 13,
+          "episodes": 208,
+          "mean_return": 87.8
+        },
+        {
+          "update": 14,
+          "episodes": 224,
+          "mean_return": 121.5
+        },
+        {
+          "update": 15,
+          "episodes": 240,
+          "mean_return": 144.5
+        },
+        {
+          "update": 16,
+          "episodes": 256,
+          "mean_return": 147.1
+        },
+        {
+          "update": 17,
+          "episodes": 272,
+          "mean_return": 135.9
+        },
+        {
+          "update": 18,
+          "episodes": 288,
+          "mean_return": 158.2
+        },
+        {
+          "update": 19,
+          "episodes": 304,
+          "mean_return": 184.1
+        },
+        {
+          "update": 20,
+          "episodes": 320,
+          "mean_return": 173.9
+        },
+        {
+          "update": 21,
+          "episodes": 336,
+          "mean_return": 191.5
+        },
+        {
+          "update": 22,
+          "episodes": 352,
+          "mean_return": 191.7
+        },
+        {
+          "update": 23,
+          "episodes": 368,
+          "mean_return": 197.3
+        },
+        {
+          "update": 24,
+          "episodes": 384,
+          "mean_return": 169.1
+        },
+        {
+          "update": 25,
+          "episodes": 400,
+          "mean_return": 188.4
+        },
+        {
+          "update": 26,
+          "episodes": 416,
+          "mean_return": 200.0
+        },
+        {
+          "update": 27,
+          "episodes": 432,
+          "mean_return": 192.4
+        },
+        {
+          "update": 28,
+          "episodes": 448,
+          "mean_return": 200.0
+        },
+        {
+          "update": 29,
+          "episodes": 464,
+          "mean_return": 200.0
+        },
+        {
+          "update": 30,
+          "episodes": 480,
+          "mean_return": 200.0
+        },
+        {
+          "update": 31,
+          "episodes": 496,
+          "mean_return": 200.0
+        },
+        {
+          "update": 32,
+          "episodes": 512,
+          "mean_return": 200.0
+        },
+        {
+          "update": 33,
+          "episodes": 528,
+          "mean_return": 191.4
+        },
+        {
+          "update": 34,
+          "episodes": 544,
+          "mean_return": 194.4
+        },
+        {
+          "update": 35,
+          "episodes": 560,
+          "mean_return": 200.0
+        },
+        {
+          "update": 36,
+          "episodes": 576,
+          "mean_return": 200.0
+        },
+        {
+          "update": 37,
+          "episodes": 592,
+          "mean_return": 200.0
+        },
+        {
+          "update": 38,
+          "episodes": 608,
+          "mean_return": 193.8
+        },
+        {
+          "update": 39,
+          "episodes": 624,
+          "mean_return": 200.0
+        },
+        {
+          "update": 40,
+          "episodes": 640,
+          "mean_return": 200.0
+        },
+        {
+          "update": 41,
+          "episodes": 656,
+          "mean_return": 200.0
+        },
+        {
+          "update": 42,
+          "episodes": 672,
+          "mean_return": 200.0
+        },
+        {
+          "update": 43,
+          "episodes": 688,
+          "mean_return": 200.0
+        },
+        {
+          "update": 44,
+          "episodes": 704,
+          "mean_return": 200.0
+        },
+        {
+          "update": 45,
+          "episodes": 720,
+          "mean_return": 198.8
+        },
+        {
+          "update": 46,
+          "episodes": 736,
+          "mean_return": 200.0
+        },
+        {
+          "update": 47,
+          "episodes": 752,
+          "mean_return": 194.8
+        },
+        {
+          "update": 48,
+          "episodes": 768,
+          "mean_return": 200.0
+        },
+        {
+          "update": 49,
+          "episodes": 784,
+          "mean_return": 196.4
+        },
+        {
+          "update": 50,
+          "episodes": 800,
+          "mean_return": 200.0
+        },
+        {
+          "update": 51,
+          "episodes": 816,
+          "mean_return": 198.8
+        },
+        {
+          "update": 52,
+          "episodes": 832,
+          "mean_return": 200.0
+        },
+        {
+          "update": 53,
+          "episodes": 848,
+          "mean_return": 197.9
+        },
+        {
+          "update": 54,
+          "episodes": 864,
+          "mean_return": 200.0
+        },
+        {
+          "update": 55,
+          "episodes": 880,
+          "mean_return": 200.0
+        },
+        {
+          "update": 56,
+          "episodes": 896,
+          "mean_return": 200.0
+        },
+        {
+          "update": 57,
+          "episodes": 912,
+          "mean_return": 200.0
+        },
+        {
+          "update": 58,
+          "episodes": 928,
+          "mean_return": 200.0
+        },
+        {
+          "update": 59,
+          "episodes": 944,
+          "mean_return": 194.8
+        },
+        {
+          "update": 60,
+          "episodes": 960,
+          "mean_return": 200.0
+        },
+        {
+          "update": 61,
+          "episodes": 976,
+          "mean_return": 200.0
+        },
+        {
+          "update": 62,
+          "episodes": 992,
+          "mean_return": 200.0
+        },
+        {
+          "update": 63,
+          "episodes": 1008,
+          "mean_return": 188.4
+        },
+        {
+          "update": 64,
+          "episodes": 1024,
+          "mean_return": 200.0
+        },
+        {
+          "update": 65,
+          "episodes": 1040,
+          "mean_return": 200.0
+        },
+        {
+          "update": 66,
+          "episodes": 1056,
+          "mean_return": 200.0
+        },
+        {
+          "update": 67,
+          "episodes": 1072,
+          "mean_return": 195.7
+        },
+        {
+          "update": 68,
+          "episodes": 1088,
+          "mean_return": 196.7
+        },
+        {
+          "update": 69,
+          "episodes": 1104,
+          "mean_return": 200.0
+        },
+        {
+          "update": 70,
+          "episodes": 1120,
+          "mean_return": 194.1
+        },
+        {
+          "update": 71,
+          "episodes": 1136,
+          "mean_return": 196.1
+        },
+        {
+          "update": 72,
+          "episodes": 1152,
+          "mean_return": 198.2
+        },
+        {
+          "update": 73,
+          "episodes": 1168,
+          "mean_return": 195.7
+        },
+        {
+          "update": 74,
+          "episodes": 1184,
+          "mean_return": 194.4
+        },
+        {
+          "update": 75,
+          "episodes": 1200,
+          "mean_return": 200.0
+        },
+        {
+          "update": 76,
+          "episodes": 1216,
+          "mean_return": 200.0
+        },
+        {
+          "update": 77,
+          "episodes": 1232,
+          "mean_return": 198.4
+        },
+        {
+          "update": 78,
+          "episodes": 1248,
+          "mean_return": 200.0
+        },
+        {
+          "update": 79,
+          "episodes": 1264,
+          "mean_return": 197.8
+        },
+        {
+          "update": 80,
+          "episodes": 1280,
+          "mean_return": 200.0
+        },
+        {
+          "update": 81,
+          "episodes": 1296,
+          "mean_return": 197.6
+        },
+        {
+          "update": 82,
+          "episodes": 1312,
+          "mean_return": 200.0
+        },
+        {
+          "update": 83,
+          "episodes": 1328,
+          "mean_return": 200.0
+        },
+        {
+          "update": 84,
+          "episodes": 1344,
+          "mean_return": 200.0
+        },
+        {
+          "update": 85,
+          "episodes": 1360,
+          "mean_return": 200.0
+        },
+        {
+          "update": 86,
+          "episodes": 1376,
+          "mean_return": 200.0
+        },
+        {
+          "update": 87,
+          "episodes": 1392,
+          "mean_return": 200.0
+        },
+        {
+          "update": 88,
+          "episodes": 1408,
+          "mean_return": 196.4
+        },
+        {
+          "update": 89,
+          "episodes": 1424,
+          "mean_return": 194.7
+        },
+        {
+          "update": 90,
+          "episodes": 1440,
+          "mean_return": 200.0
+        },
+        {
+          "update": 91,
+          "episodes": 1456,
+          "mean_return": 199.8
+        },
+        {
+          "update": 92,
+          "episodes": 1472,
+          "mean_return": 200.0
+        },
+        {
+          "update": 93,
+          "episodes": 1488,
+          "mean_return": 193.7
+        },
+        {
+          "update": 94,
+          "episodes": 1504,
+          "mean_return": 200.0
+        },
+        {
+          "update": 95,
+          "episodes": 1520,
+          "mean_return": 191.9
+        },
+        {
+          "update": 96,
+          "episodes": 1536,
+          "mean_return": 189.4
+        },
+        {
+          "update": 97,
+          "episodes": 1552,
+          "mean_return": 196.5
+        },
+        {
+          "update": 98,
+          "episodes": 1568,
+          "mean_return": 181.9
+        },
+        {
+          "update": 99,
+          "episodes": 1584,
+          "mean_return": 194.2
+        },
+        {
+          "update": 100,
+          "episodes": 1600,
+          "mean_return": 187.4
+        },
+        {
+          "update": 101,
+          "episodes": 1616,
+          "mean_return": 198.0
+        },
+        {
+          "update": 102,
+          "episodes": 1632,
+          "mean_return": 200.0
+        },
+        {
+          "update": 103,
+          "episodes": 1648,
+          "mean_return": 194.8
+        },
+        {
+          "update": 104,
+          "episodes": 1664,
+          "mean_return": 200.0
+        },
+        {
+          "update": 105,
+          "episodes": 1680,
+          "mean_return": 200.0
+        },
+        {
+          "update": 106,
+          "episodes": 1696,
+          "mean_return": 200.0
+        },
+        {
+          "update": 107,
+          "episodes": 1712,
+          "mean_return": 200.0
+        },
+        {
+          "update": 108,
+          "episodes": 1728,
+          "mean_return": 200.0
+        },
+        {
+          "update": 109,
+          "episodes": 1744,
+          "mean_return": 200.0
+        },
+        {
+          "update": 110,
+          "episodes": 1760,
+          "mean_return": 195.3
+        },
+        {
+          "update": 111,
+          "episodes": 1776,
+          "mean_return": 200.0
+        },
+        {
+          "update": 112,
+          "episodes": 1792,
+          "mean_return": 200.0
+        },
+        {
+          "update": 113,
+          "episodes": 1808,
+          "mean_return": 200.0
+        },
+        {
+          "update": 114,
+          "episodes": 1824,
+          "mean_return": 193.2
+        },
+        {
+          "update": 115,
+          "episodes": 1840,
+          "mean_return": 193.6
+        },
+        {
+          "update": 116,
+          "episodes": 1856,
+          "mean_return": 200.0
+        },
+        {
+          "update": 117,
+          "episodes": 1872,
+          "mean_return": 200.0
+        },
+        {
+          "update": 118,
+          "episodes": 1888,
+          "mean_return": 200.0
+        },
+        {
+          "update": 119,
+          "episodes": 1904,
+          "mean_return": 200.0
+        },
+        {
+          "update": 120,
+          "episodes": 1920,
+          "mean_return": 200.0
+        }
+      ],
+      "final_mean_return": 198.7,
+      "first_update_at_195": 368
+    },
+    {
+      "seed": 2,
+      "baseline": true,
+      "curve": [
+        {
+          "update": 1,
+          "episodes": 16,
+          "mean_return": 20.5
+        },
+        {
+          "update": 2,
+          "episodes": 32,
+          "mean_return": 33.7
+        },
+        {
+          "update": 3,
+          "episodes": 48,
+          "mean_return": 30.6
+        },
+        {
+          "update": 4,
+          "episodes": 64,
+          "mean_return": 38.8
+        },
+        {
+          "update": 5,
+          "episodes": 80,
+          "mean_return": 43.1
+        },
+        {
+          "update": 6,
+          "episodes": 96,
+          "mean_return": 50.6
+        },
+        {
+          "update": 7,
+          "episodes": 112,
+          "mean_return": 41.8
+        },
+        {
+          "update": 8,
+          "episodes": 128,
+          "mean_return": 57.4
+        },
+        {
+          "update": 9,
+          "episodes": 144,
+          "mean_return": 50.8
+        },
+        {
+          "update": 10,
+          "episodes": 160,
+          "mean_return": 59.9
+        },
+        {
+          "update": 11,
+          "episodes": 176,
+          "mean_return": 69.9
+        },
+        {
+          "update": 12,
+          "episodes": 192,
+          "mean_return": 71.1
+        },
+        {
+          "update": 13,
+          "episodes": 208,
+          "mean_return": 75.4
+        },
+        {
+          "update": 14,
+          "episodes": 224,
+          "mean_return": 63.3
+        },
+        {
+          "update": 15,
+          "episodes": 240,
+          "mean_return": 80.8
+        },
+        {
+          "update": 16,
+          "episodes": 256,
+          "mean_return": 94.5
+        },
+        {
+          "update": 17,
+          "episodes": 272,
+          "mean_return": 78.2
+        },
+        {
+          "update": 18,
+          "episodes": 288,
+          "mean_return": 89.8
+        },
+        {
+          "update": 19,
+          "episodes": 304,
+          "mean_return": 120.5
+        },
+        {
+          "update": 20,
+          "episodes": 320,
+          "mean_return": 133.6
+        },
+        {
+          "update": 21,
+          "episodes": 336,
+          "mean_return": 139.0
+        },
+        {
+          "update": 22,
+          "episodes": 352,
+          "mean_return": 158.7
+        },
+        {
+          "update": 23,
+          "episodes": 368,
+          "mean_return": 161.6
+        },
+        {
+          "update": 24,
+          "episodes": 384,
+          "mean_return": 162.2
+        },
+        {
+          "update": 25,
+          "episodes": 400,
+          "mean_return": 179.0
+        },
+        {
+          "update": 26,
+          "episodes": 416,
+          "mean_return": 170.2
+        },
+        {
+          "update": 27,
+          "episodes": 432,
+          "mean_return": 184.9
+        },
+        {
+          "update": 28,
+          "episodes": 448,
+          "mean_return": 187.1
+        },
+        {
+          "update": 29,
+          "episodes": 464,
+          "mean_return": 172.9
+        },
+        {
+          "update": 30,
+          "episodes": 480,
+          "mean_return": 193.4
+        },
+        {
+          "update": 31,
+          "episodes": 496,
+          "mean_return": 197.6
+        },
+        {
+          "update": 32,
+          "episodes": 512,
+          "mean_return": 199.1
+        },
+        {
+          "update": 33,
+          "episodes": 528,
+          "mean_return": 195.9
+        },
+        {
+          "update": 34,
+          "episodes": 544,
+          "mean_return": 200.0
+        },
+        {
+          "update": 35,
+          "episodes": 560,
+          "mean_return": 198.1
+        },
+        {
+          "update": 36,
+          "episodes": 576,
+          "mean_return": 200.0
+        },
+        {
+          "update": 37,
+          "episodes": 592,
+          "mean_return": 197.8
+        },
+        {
+          "update": 38,
+          "episodes": 608,
+          "mean_return": 200.0
+        },
+        {
+          "update": 39,
+          "episodes": 624,
+          "mean_return": 197.7
+        },
+        {
+          "update": 40,
+          "episodes": 640,
+          "mean_return": 200.0
+        },
+        {
+          "update": 41,
+          "episodes": 656,
+          "mean_return": 200.0
+        },
+        {
+          "update": 42,
+          "episodes": 672,
+          "mean_return": 200.0
+        },
+        {
+          "update": 43,
+          "episodes": 688,
+          "mean_return": 197.5
+        },
+        {
+          "update": 44,
+          "episodes": 704,
+          "mean_return": 200.0
+        },
+        {
+          "update": 45,
+          "episodes": 720,
+          "mean_return": 200.0
+        },
+        {
+          "update": 46,
+          "episodes": 736,
+          "mean_return": 200.0
+        },
+        {
+          "update": 47,
+          "episodes": 752,
+          "mean_return": 200.0
+        },
+        {
+          "update": 48,
+          "episodes": 768,
+          "mean_return": 200.0
+        },
+        {
+          "update": 49,
+          "episodes": 784,
+          "mean_return": 198.9
+        },
+        {
+          "update": 50,
+          "episodes": 800,
+          "mean_return": 200.0
+        },
+        {
+          "update": 51,
+          "episodes": 816,
+          "mean_return": 198.9
+        },
+        {
+          "update": 52,
+          "episodes": 832,
+          "mean_return": 200.0
+        },
+        {
+          "update": 53,
+          "episodes": 848,
+          "mean_return": 200.0
+        },
+        {
+          "update": 54,
+          "episodes": 864,
+          "mean_return": 200.0
+        },
+        {
+          "update": 55,
+          "episodes": 880,
+          "mean_return": 200.0
+        },
+        {
+          "update": 56,
+          "episodes": 896,
+          "mean_return": 200.0
+        },
+        {
+          "update": 57,
+          "episodes": 912,
+          "mean_return": 200.0
+        },
+        {
+          "update": 58,
+          "episodes": 928,
+          "mean_return": 200.0
+        },
+        {
+          "update": 59,
+          "episodes": 944,
+          "mean_return": 200.0
+        },
+        {
+          "update": 60,
+          "episodes": 960,
+          "mean_return": 200.0
+        },
+        {
+          "update": 61,
+          "episodes": 976,
+          "mean_return": 197.9
+        },
+        {
+          "update": 62,
+          "episodes": 992,
+          "mean_return": 200.0
+        },
+        {
+          "update": 63,
+          "episodes": 1008,
+          "mean_return": 200.0
+        },
+        {
+          "update": 64,
+          "episodes": 1024,
+          "mean_return": 200.0
+        },
+        {
+          "update": 65,
+          "episodes": 1040,
+          "mean_return": 200.0
+        },
+        {
+          "update": 66,
+          "episodes": 1056,
+          "mean_return": 200.0
+        },
+        {
+          "update": 67,
+          "episodes": 1072,
+          "mean_return": 200.0
+        },
+        {
+          "update": 68,
+          "episodes": 1088,
+          "mean_return": 200.0
+        },
+        {
+          "update": 69,
+          "episodes": 1104,
+          "mean_return": 200.0
+        },
+        {
+          "update": 70,
+          "episodes": 1120,
+          "mean_return": 200.0
+        },
+        {
+          "update": 71,
+          "episodes": 1136,
+          "mean_return": 194.3
+        },
+        {
+          "update": 72,
+          "episodes": 1152,
+          "mean_return": 200.0
+        },
+        {
+          "update": 73,
+          "episodes": 1168,
+          "mean_return": 200.0
+        },
+        {
+          "update": 74,
+          "episodes": 1184,
+          "mean_return": 197.9
+        },
+        {
+          "update": 75,
+          "episodes": 1200,
+          "mean_return": 199.9
+        },
+        {
+          "update": 76,
+          "episodes": 1216,
+          "mean_return": 200.0
+        },
+        {
+          "update": 77,
+          "episodes": 1232,
+          "mean_return": 198.9
+        },
+        {
+          "update": 78,
+          "episodes": 1248,
+          "mean_return": 199.9
+        },
+        {
+          "update": 79,
+          "episodes": 1264,
+          "mean_return": 191.4
+        },
+        {
+          "update": 80,
+          "episodes": 1280,
+          "mean_return": 195.2
+        },
+        {
+          "update": 81,
+          "episodes": 1296,
+          "mean_return": 197.1
+        },
+        {
+          "update": 82,
+          "episodes": 1312,
+          "mean_return": 189.3
+        },
+        {
+          "update": 83,
+          "episodes": 1328,
+          "mean_return": 198.6
+        },
+        {
+          "update": 84,
+          "episodes": 1344,
+          "mean_return": 192.8
+        },
+        {
+          "update": 85,
+          "episodes": 1360,
+          "mean_return": 195.7
+        },
+        {
+          "update": 86,
+          "episodes": 1376,
+          "mean_return": 194.6
+        },
+        {
+          "update": 87,
+          "episodes": 1392,
+          "mean_return": 191.1
+        },
+        {
+          "update": 88,
+          "episodes": 1408,
+          "mean_return": 197.6
+        },
+        {
+          "update": 89,
+          "episodes": 1424,
+          "mean_return": 189.5
+        },
+        {
+          "update": 90,
+          "episodes": 1440,
+          "mean_return": 187.2
+        },
+        {
+          "update": 91,
+          "episodes": 1456,
+          "mean_return": 193.2
+        },
+        {
+          "update": 92,
+          "episodes": 1472,
+          "mean_return": 195.2
+        },
+        {
+          "update": 93,
+          "episodes": 1488,
+          "mean_return": 188.1
+        },
+        {
+          "update": 94,
+          "episodes": 1504,
+          "mean_return": 184.3
+        },
+        {
+          "update": 95,
+          "episodes": 1520,
+          "mean_return": 194.2
+        },
+        {
+          "update": 96,
+          "episodes": 1536,
+          "mean_return": 186.7
+        },
+        {
+          "update": 97,
+          "episodes": 1552,
+          "mean_return": 190.1
+        },
+        {
+          "update": 98,
+          "episodes": 1568,
+          "mean_return": 188.4
+        },
+        {
+          "update": 99,
+          "episodes": 1584,
+          "mean_return": 181.6
+        },
+        {
+          "update": 100,
+          "episodes": 1600,
+          "mean_return": 191.4
+        },
+        {
+          "update": 101,
+          "episodes": 1616,
+          "mean_return": 192.0
+        },
+        {
+          "update": 102,
+          "episodes": 1632,
+          "mean_return": 200.0
+        },
+        {
+          "update": 103,
+          "episodes": 1648,
+          "mean_return": 199.6
+        },
+        {
+          "update": 104,
+          "episodes": 1664,
+          "mean_return": 199.1
+        },
+        {
+          "update": 105,
+          "episodes": 1680,
+          "mean_return": 200.0
+        },
+        {
+          "update": 106,
+          "episodes": 1696,
+          "mean_return": 200.0
+        },
+        {
+          "update": 107,
+          "episodes": 1712,
+          "mean_return": 200.0
+        },
+        {
+          "update": 108,
+          "episodes": 1728,
+          "mean_return": 200.0
+        },
+        {
+          "update": 109,
+          "episodes": 1744,
+          "mean_return": 200.0
+        },
+        {
+          "update": 110,
+          "episodes": 1760,
+          "mean_return": 200.0
+        },
+        {
+          "update": 111,
+          "episodes": 1776,
+          "mean_return": 200.0
+        },
+        {
+          "update": 112,
+          "episodes": 1792,
+          "mean_return": 200.0
+        },
+        {
+          "update": 113,
+          "episodes": 1808,
+          "mean_return": 200.0
+        },
+        {
+          "update": 114,
+          "episodes": 1824,
+          "mean_return": 200.0
+        },
+        {
+          "update": 115,
+          "episodes": 1840,
+          "mean_return": 200.0
+        },
+        {
+          "update": 116,
+          "episodes": 1856,
+          "mean_return": 200.0
+        },
+        {
+          "update": 117,
+          "episodes": 1872,
+          "mean_return": 200.0
+        },
+        {
+          "update": 118,
+          "episodes": 1888,
+          "mean_return": 200.0
+        },
+        {
+          "update": 119,
+          "episodes": 1904,
+          "mean_return": 200.0
+        },
+        {
+          "update": 120,
+          "episodes": 1920,
+          "mean_return": 200.0
+        }
+      ],
+      "final_mean_return": 200.0,
+      "first_update_at_195": 496
+    }
+  ]
+}
