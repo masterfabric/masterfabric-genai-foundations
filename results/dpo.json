@@ -1,0 +1,731 @@
+{
+  "env": {
+    "torch": "2.15.0",
+    "device": "mps",
+    "machine": "arm64",
+    "python": "3.12.15"
+  },
+  "prompt_chars": 32,
+  "completion_chars": 48,
+  "vocabulary_words": 1271,
+  "pairs": {
+    "sampled": 2048,
+    "kept_after_ties": 1722,
+    "seconds": 10.5,
+    "mean_reward_chosen": 0.8476,
+    "mean_reward_rejected": 0.6076
+  },
+  "steps": 300,
+  "batch": 64,
+  "lrs": [
+    1e-05,
+    3e-05,
+    0.0001
+  ],
+  "eval_prompts": 256,
+  "samples_per_prompt": 4,
+  "methods": [
+    {
+      "method": "reference (pretrained)",
+      "beta": null,
+      "reward": 0.7487,
+      "reward_se": 0.0064,
+      "kl_nats": 0.0,
+      "val_loss_original": 1.5159,
+      "example": "rather tunning of Tases and parquelity.\n- Status"
+    },
+    {
+      "method": "best-of-4 sampling",
+      "beta": null,
+      "reward": 0.7627,
+      "kl_nats": 0.636,
+      "kl_note": "analytic bound, not measured",
+      "val_loss_original": 1.5159,
+      "inference_cost": "4x"
+    },
+    {
+      "method": "filtered SFT (chosen only)",
+      "beta": null,
+      "lr": 1e-05,
+      "reward": 0.757,
+      "reward_se": 0.0064,
+      "kl_nats": 10.648,
+      "val_loss_original": 1.5366,
+      "delta_logp_chosen": 2.33,
+      "delta_logp_rejected": -0.68,
+      "train_seconds": 6.3,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.8911,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 50,
+          "loss": 0.9687,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 100,
+          "loss": 0.9159,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 150,
+          "loss": 0.9269,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 200,
+          "loss": 0.9204,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 250,
+          "loss": 0.8718,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 300,
+          "loss": 0.8473,
+          "pref_acc": NaN,
+          "margin": NaN
+        }
+      ],
+      "example": "raming. The panel tables that memess (key) what "
+    },
+    {
+      "method": "DPO beta=0.1",
+      "beta": 0.1,
+      "lr": 1e-05,
+      "reward": 0.7214,
+      "reward_se": 0.0064,
+      "kl_nats": 17.717,
+      "val_loss_original": 1.6838,
+      "delta_logp_chosen": -5.16,
+      "delta_logp_rejected": -13.75,
+      "train_seconds": 11.5,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.6333,
+          "pref_acc": 0.766,
+          "margin": 0.134
+        },
+        {
+          "step": 100,
+          "loss": 0.5823,
+          "pref_acc": 0.797,
+          "margin": 0.258
+        },
+        {
+          "step": 150,
+          "loss": 0.4894,
+          "pref_acc": 0.812,
+          "margin": 0.531
+        },
+        {
+          "step": 200,
+          "loss": 0.4532,
+          "pref_acc": 0.844,
+          "margin": 0.669
+        },
+        {
+          "step": 250,
+          "loss": 0.4334,
+          "pref_acc": 0.906,
+          "margin": 0.686
+        },
+        {
+          "step": 300,
+          "loss": 0.3596,
+          "pref_acc": 0.922,
+          "margin": 1.015
+        }
+      ],
+      "example": "raminute and ano meart with\nstartilP (furrelt M "
+    },
+    {
+      "method": "DPO beta=0.3",
+      "beta": 0.3,
+      "lr": 1e-05,
+      "reward": 0.7725,
+      "reward_se": 0.0063,
+      "kl_nats": 13.194,
+      "val_loss_original": 1.5995,
+      "delta_logp_chosen": -0.68,
+      "delta_logp_rejected": -7.28,
+      "train_seconds": 11.5,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.5576,
+          "pref_acc": 0.781,
+          "margin": 0.356
+        },
+        {
+          "step": 100,
+          "loss": 0.4599,
+          "pref_acc": 0.859,
+          "margin": 0.633
+        },
+        {
+          "step": 150,
+          "loss": 0.3245,
+          "pref_acc": 0.891,
+          "margin": 1.203
+        },
+        {
+          "step": 200,
+          "loss": 0.2556,
+          "pref_acc": 0.938,
+          "margin": 1.514
+        },
+        {
+          "step": 250,
+          "loss": 0.2062,
+          "pref_acc": 0.984,
+          "margin": 1.654
+        },
+        {
+          "step": 300,
+          "loss": 0.1494,
+          "pref_acc": 1.0,
+          "margin": 2.187
+        }
+      ],
+      "example": "raming. The panel tables that month, not autoPr "
+    },
+    {
+      "method": "DPO beta=1.0",
+      "beta": 1.0,
+      "lr": 1e-05,
+      "reward": 0.7856,
+      "reward_se": 0.006,
+      "kl_nats": 11.068,
+      "val_loss_original": 1.5523,
+      "delta_logp_chosen": 0.73,
+      "delta_logp_rejected": -3.76,
+      "train_seconds": 11.5,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.3984,
+          "pref_acc": 0.859,
+          "margin": 1.056
+        },
+        {
+          "step": 100,
+          "loss": 0.2298,
+          "pref_acc": 0.938,
+          "margin": 1.726
+        },
+        {
+          "step": 150,
+          "loss": 0.1133,
+          "pref_acc": 0.984,
+          "margin": 2.732
+        },
+        {
+          "step": 200,
+          "loss": 0.0648,
+          "pref_acc": 1.0,
+          "margin": 3.352
+        },
+        {
+          "step": 250,
+          "loss": 0.0318,
+          "pref_acc": 1.0,
+          "margin": 3.78
+        },
+        {
+          "step": 300,
+          "loss": 0.0156,
+          "pref_acc": 1.0,
+          "margin": 4.704
+        }
+      ],
+      "example": "raming. The panel tables that month, not autoPru"
+    },
+    {
+      "method": "filtered SFT (chosen only)",
+      "beta": null,
+      "lr": 3e-05,
+      "reward": 0.7707,
+      "reward_se": 0.0061,
+      "kl_nats": 11.87,
+      "val_loss_original": 1.5827,
+      "delta_logp_chosen": 5.32,
+      "delta_logp_rejected": -2.1,
+      "train_seconds": 6.3,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.8911,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 50,
+          "loss": 0.9566,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 100,
+          "loss": 0.8931,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 150,
+          "loss": 0.8893,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 200,
+          "loss": 0.8769,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 250,
+          "loss": 0.8178,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 300,
+          "loss": 0.7834,
+          "pref_acc": NaN,
+          "margin": NaN
+        }
+      ],
+      "example": "raming. Two lab companed that bof lised,\nfor PLA"
+    },
+    {
+      "method": "DPO beta=0.1",
+      "beta": 0.1,
+      "lr": 3e-05,
+      "reward": 0.6224,
+      "reward_se": 0.0073,
+      "kl_nats": 36.032,
+      "val_loss_original": 2.0578,
+      "delta_logp_chosen": -17.1,
+      "delta_logp_rejected": -41.73,
+      "train_seconds": 11.5,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.5363,
+          "pref_acc": 0.75,
+          "margin": 0.455
+        },
+        {
+          "step": 100,
+          "loss": 0.4358,
+          "pref_acc": 0.875,
+          "margin": 0.758
+        },
+        {
+          "step": 150,
+          "loss": 0.276,
+          "pref_acc": 0.938,
+          "margin": 1.496
+        },
+        {
+          "step": 200,
+          "loss": 0.2154,
+          "pref_acc": 0.984,
+          "margin": 1.768
+        },
+        {
+          "step": 250,
+          "loss": 0.1425,
+          "pref_acc": 1.0,
+          "margin": 2.118
+        },
+        {
+          "step": 300,
+          "loss": 0.1136,
+          "pref_acc": 0.984,
+          "margin": 2.598
+        }
+      ],
+      "example": "rappWh. Iceberg tables the is  of 5, .3,9 holdou"
+    },
+    {
+      "method": "DPO beta=0.3",
+      "beta": 0.3,
+      "lr": 3e-05,
+      "reward": 0.7376,
+      "reward_se": 0.0066,
+      "kl_nats": 22.305,
+      "val_loss_original": 1.8095,
+      "delta_logp_chosen": -6.18,
+      "delta_logp_rejected": -22.86,
+      "train_seconds": 11.4,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.4077,
+          "pref_acc": 0.891,
+          "margin": 1.052
+        },
+        {
+          "step": 100,
+          "loss": 0.2287,
+          "pref_acc": 0.953,
+          "margin": 1.714
+        },
+        {
+          "step": 150,
+          "loss": 0.1266,
+          "pref_acc": 0.984,
+          "margin": 2.912
+        },
+        {
+          "step": 200,
+          "loss": 0.0509,
+          "pref_acc": 1.0,
+          "margin": 3.771
+        },
+        {
+          "step": 250,
+          "loss": 0.0234,
+          "pref_acc": 1.0,
+          "margin": 4.148
+        },
+        {
+          "step": 300,
+          "loss": 0.0147,
+          "pref_acc": 1.0,
+          "margin": 5.163
+        }
+      ],
+      "example": "rams.\n6. ***Opend-ware** (CRUS offleps mostlePon"
+    },
+    {
+      "method": "DPO beta=1.0",
+      "beta": 1.0,
+      "lr": 3e-05,
+      "reward": 0.7816,
+      "reward_se": 0.0063,
+      "kl_nats": 13.456,
+      "val_loss_original": 1.6091,
+      "delta_logp_chosen": -0.02,
+      "delta_logp_rejected": -8.51,
+      "train_seconds": 11.4,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.2814,
+          "pref_acc": 0.875,
+          "margin": 2.638
+        },
+        {
+          "step": 100,
+          "loss": 0.0882,
+          "pref_acc": 0.969,
+          "margin": 4.191
+        },
+        {
+          "step": 150,
+          "loss": 0.015,
+          "pref_acc": 1.0,
+          "margin": 6.019
+        },
+        {
+          "step": 200,
+          "loss": 0.0077,
+          "pref_acc": 1.0,
+          "margin": 6.832
+        },
+        {
+          "step": 250,
+          "loss": 0.003,
+          "pref_acc": 1.0,
+          "margin": 7.663
+        },
+        {
+          "step": 300,
+          "loss": 0.0013,
+          "pref_acc": 1.0,
+          "margin": 8.11
+        }
+      ],
+      "example": "rams.\n6. **make te** What file replines, and min"
+    },
+    {
+      "method": "filtered SFT (chosen only)",
+      "beta": null,
+      "lr": 0.0001,
+      "reward": 0.7493,
+      "reward_se": 0.0065,
+      "kl_nats": 17.208,
+      "val_loss_original": 1.7412,
+      "delta_logp_chosen": 12.49,
+      "delta_logp_rejected": -8.13,
+      "train_seconds": 6.2,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.8911,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 50,
+          "loss": 0.9343,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 100,
+          "loss": 0.8434,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 150,
+          "loss": 0.8067,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 200,
+          "loss": 0.7744,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 250,
+          "loss": 0.6884,
+          "pref_acc": NaN,
+          "margin": NaN
+        },
+        {
+          "step": 300,
+          "loss": 0.6314,
+          "pref_acc": NaN,
+          "margin": NaN
+        }
+      ],
+      "example": "raming → bronze |\n|  **FastAPI *SQL** (that to b"
+    },
+    {
+      "method": "DPO beta=0.1",
+      "beta": 0.1,
+      "lr": 0.0001,
+      "reward": 0.4983,
+      "reward_se": 0.0079,
+      "kl_nats": 73.21,
+      "val_loss_original": 2.9241,
+      "delta_logp_chosen": -43.8,
+      "delta_logp_rejected": -100.23,
+      "train_seconds": 11.4,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.402,
+          "pref_acc": 0.844,
+          "margin": 1.258
+        },
+        {
+          "step": 100,
+          "loss": 0.1552,
+          "pref_acc": 0.984,
+          "margin": 2.225
+        },
+        {
+          "step": 150,
+          "loss": 0.063,
+          "pref_acc": 1.0,
+          "margin": 3.385
+        },
+        {
+          "step": 200,
+          "loss": 0.0331,
+          "pref_acc": 1.0,
+          "margin": 4.221
+        },
+        {
+          "step": 250,
+          "loss": 0.0151,
+          "pref_acc": 1.0,
+          "margin": 5.004
+        },
+        {
+          "step": 300,
+          "loss": 0.0057,
+          "pref_acc": 1.0,
+          "margin": 5.741
+        }
+      ],
+      "example": "rappWh in tal alert. The looog imile schart\n  ( "
+    },
+    {
+      "method": "DPO beta=0.3",
+      "beta": 0.3,
+      "lr": 0.0001,
+      "reward": 0.653,
+      "reward_se": 0.0064,
+      "kl_nats": 36.673,
+      "val_loss_original": 2.1169,
+      "delta_logp_chosen": -14.93,
+      "delta_logp_rejected": -43.4,
+      "train_seconds": 11.4,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.3864,
+          "pref_acc": 0.844,
+          "margin": 2.348
+        },
+        {
+          "step": 100,
+          "loss": 0.0664,
+          "pref_acc": 0.969,
+          "margin": 4.331
+        },
+        {
+          "step": 150,
+          "loss": 0.0222,
+          "pref_acc": 0.984,
+          "margin": 6.284
+        },
+        {
+          "step": 200,
+          "loss": 0.0285,
+          "pref_acc": 0.984,
+          "margin": 7.2
+        },
+        {
+          "step": 250,
+          "loss": 0.0072,
+          "pref_acc": 1.0,
+          "margin": 7.262
+        },
+        {
+          "step": 300,
+          "loss": 0.0023,
+          "pref_acc": 1.0,
+          "margin": 8.089
+        }
+      ],
+      "example": "ramsWark[\"Kafka UI a mean file of sthen,\n  ruse "
+    },
+    {
+      "method": "DPO beta=1.0",
+      "beta": 1.0,
+      "lr": 0.0001,
+      "reward": 0.7187,
+      "reward_se": 0.0062,
+      "kl_nats": 22.875,
+      "val_loss_original": 1.7785,
+      "delta_logp_chosen": -6.13,
+      "delta_logp_rejected": -21.67,
+      "train_seconds": 11.4,
+      "curve": [
+        {
+          "step": 1,
+          "loss": 0.6931,
+          "pref_acc": 0.0,
+          "margin": 0.0
+        },
+        {
+          "step": 50,
+          "loss": 0.5102,
+          "pref_acc": 0.859,
+          "margin": 4.82
+        },
+        {
+          "step": 100,
+          "loss": 0.0477,
+          "pref_acc": 0.984,
+          "margin": 9.262
+        },
+        {
+          "step": 150,
+          "loss": 0.0153,
+          "pref_acc": 1.0,
+          "margin": 12.484
+        },
+        {
+          "step": 200,
+          "loss": 0.084,
+          "pref_acc": 0.969,
+          "margin": 12.466
+        },
+        {
+          "step": 250,
+          "loss": 0.0078,
+          "pref_acc": 1.0,
+          "margin": 13.393
+        },
+        {
+          "step": 300,
+          "loss": 0.0394,
+          "pref_acc": 0.969,
+          "margin": 14.855
+        }
+      ],
+      "example": "rappendas\".\n- The table at is (of signk, as and "
+    }
+  ]
+}
