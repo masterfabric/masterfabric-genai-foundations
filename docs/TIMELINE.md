@@ -33,3 +33,54 @@ Every step below is one commit, in order. Times are Europe/Istanbul (UTC+3).
 
 The final commit adds this file and the README; see `git log` for the full messages, which explain
 the why of each step (including the fixes found by running the system).
+
+
+## Addition: WGAN-GP, a small diffusion model and DPO (2026-11-21)
+
+Started from `bfc85b3`. Times are Europe/Istanbul. No new dependencies: everything uses the pinned torch, numpy and
+matplotlib.
+
+| # | Commit | Time | Change |
+|---|---|---|---|
+| 1 | `bffa1e8` | 2026-11-21 13:48 | gan: WGAN-GP critic and gradient penalty from the paper's equations, with tests |
+| 2 | `89218e3` | 2026-11-21 13:48 | results: WGAN-GP on the 8-Gaussian ring, 3 seeds at 4,000 and 20,000 generator steps (8/8 modes at 20k) |
+| 3 | `cc08dc5` | 2026-11-21 13:48 | results: control, non-saturating GAN at 20,000 steps still covers 4-6 of 8 modes |
+| 4 | `4874e15` | 2026-11-21 13:49 | diffusion: DDPM training and sampling, DDIM with optional x0 clamp, point and U-Net denoisers, synthetic shapes and a judge classifier |
+| 5 | `9c416ba` | 2026-11-21 13:49 | dpo: DPO loss, completion log-probs and a programmatic word-validity reward, with tests |
+| 6 | `1f733a6` | 2026-11-21 13:56 | results: diffusion, ring 8/8 modes with DDPM and clamped DDIM; 16x16 shapes, classifier-feature Frechet 0.75 (DDPM) vs collapse without the clamp |
+| 7 | `d68deaf` | 2026-11-21 14:05 | results: DPO grid (3 learning rates x beta 0.1/0.3/1.0) vs filtered SFT and best-of-4; small beta pushes chosen log-probs down too |
+| 8 | `890c6b0` | 2026-11-21 14:06 | charts: ring comparison (GAN, WGAN-GP, diffusion), diffusion shapes and step counts, DPO reward vs KL |
+| 9 | `c4ae784` | 2026-11-21 14:07 | diagram: overview with WGAN-GP, diffusion and DPO |
+| 10 | `90265fe` | 2026-11-21 14:07 | hero: diffusion, DPO and the ring comparison, read from results |
+| 11 | `b504aa9` | 2026-11-21 14:07 | Makefile: wgan, diffusion and dpo targets |
+| 12 | `8f5a896` | 2026-11-21 14:08 | docs: ADRs 0004-0006 (WGAN-GP on the ring, diffusion sampling, DPO) |
+| 13 | `03458fb` | 2026-11-21 14:10 | README: WGAN-GP, diffusion and DPO sections with figures 6-9, key results, limitations and roadmap |
+| 14 | (this commit) | | docs(timeline): this section |
+
+### Verification (measured on the M4 Pro)
+
+| Check | Result |
+|---|---|
+| Unit tests | 14 passed (gradient penalty by hand, DDPM/DDIM recover a point with an exact denoiser, DPO loss and log-probs) |
+| GAN control, 20k steps | 5 / 4 / 6 of 8 modes, 88-91% on a mode |
+| WGAN-GP, 4k / 20k generator steps | 4 / 2 / 0 and 8 / 8 / 8 modes; 20k: 74-77% on a mode, 101-107 s per seed |
+| Diffusion, ring | DDPM 8/8 modes, 94.9% on a mode; DDIM without clamp 2.3 modes; DDIM 20 steps + clamp 8/8, 89.2% |
+| Diffusion, 16x16 shapes | U-Net 582k params, 8,000 steps in 182 s on MPS; judge accuracy 1.000; Fréchet 0.75 (DDPM) vs 0.80 real vs real; DDIM 10 + clamp 2.68 |
+| DPO | 1,722 pairs; reward 0.749 → 0.786 ± 0.006 (β 1.0, lr 1e-5); filtered SFT best 0.771; best-of-4 0.763 |
+| Machine state | experiments ran as local Python processes only, all finished; no servers, Colima or k3d used; ports 3000, 8081, 11234 untouched |
+
+### Found while running it
+
+- WGAN-GP with the paper's settings is slower to learn than the GAN: at 4,000 generator steps it covers 0-4 modes.
+  The 20,000-step control shows the GAN does not catch up with more steps; it only sharpens the modes it has.
+- DDIM failed on both tasks until the predicted x0 was clamped: the cosine schedule's last ᾱ is 2.4e-9, so the
+  first DDIM step divides the network error by about 5e-5. On images the unclamped sampler gave noise that the
+  judge called "cross" 100% of the time.
+- The first shapes run produced crosses only: the weight EMA (fixed 0.999) still held 37% of the random initial
+  weights at step 1,000. The EMA now warms up.
+- The DDPM samples' Fréchet distance (0.75) is below the real-vs-real value (0.80): the judge is at its noise floor
+  and cannot rank DDPM against real data, only samplers against each other.
+- The first DPO grid (lr 1e-4, β 0.03-0.3) lowered the reward it was trained on (0.35-0.65 from 0.75) and pushed
+  validation loss to 2.1-4.0. Small β lowers the probability of the chosen completions as well as the rejected ones.
+- MPS is not bit-deterministic: re-running the DPO grid moved one point (β 1.0, lr 1e-4) from 0.729 to 0.719.
+- WGAN-GP, the GAN control and the diffusion ring runs overlapped on the CPU, so their wall times are upper bounds.
