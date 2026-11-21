@@ -13,8 +13,9 @@ class LoRALinear(nn.Module):
         self.base = base
         for p in self.base.parameters():
             p.requires_grad_(False)
-        self.A = nn.Parameter(torch.empty(r, base.in_features))
-        self.B = nn.Parameter(torch.zeros(base.out_features, r))  # zero: the adapter starts as a no-op
+        dev = base.weight.device
+        self.A = nn.Parameter(torch.empty(r, base.in_features, device=dev))
+        self.B = nn.Parameter(torch.zeros(base.out_features, r, device=dev))  # zero: the adapter starts as a no-op
         nn.init.kaiming_uniform_(self.A, a=math.sqrt(5))
         self.scale = alpha / r
 
