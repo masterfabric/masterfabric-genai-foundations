@@ -1,0 +1,284 @@
+{
+  "env": {
+    "torch": "2.15.0",
+    "device": "mps",
+    "machine": "arm64",
+    "python": "3.12.15"
+  },
+  "base_params": 824064,
+  "steps": 400,
+  "new_corpus_chars": 14394,
+  "runs": [
+    {
+      "method": "no fine-tuning",
+      "trainable": 0,
+      "val_new": 2.193,
+      "val_original": 1.5159,
+      "seconds": 0.0
+    },
+    {
+      "method": "full fine-tuning",
+      "trainable": 824064,
+      "trainable_pct": 100.0,
+      "val_new": 1.7253,
+      "val_original": 1.747,
+      "best_step": 100,
+      "seconds": 14.9,
+      "lr": 0.0003,
+      "curve": [
+        {
+          "step": 1,
+          "train": 2.2735,
+          "val": 2.1859,
+          "val_other": 1.5133
+        },
+        {
+          "step": 50,
+          "train": 1.5426,
+          "val": 1.7555,
+          "val_other": 1.5914
+        },
+        {
+          "step": 100,
+          "train": 1.2711,
+          "val": 1.7253,
+          "val_other": 1.747
+        },
+        {
+          "step": 150,
+          "train": 1.0684,
+          "val": 1.7671,
+          "val_other": 1.8816
+        },
+        {
+          "step": 200,
+          "train": 0.9368,
+          "val": 1.8105,
+          "val_other": 1.9909
+        },
+        {
+          "step": 250,
+          "train": 0.8709,
+          "val": 1.8423,
+          "val_other": 2.0758
+        },
+        {
+          "step": 300,
+          "train": 0.791,
+          "val": 1.8608,
+          "val_other": 2.1241
+        },
+        {
+          "step": 350,
+          "train": 0.8004,
+          "val": 1.8779,
+          "val_other": 2.1442
+        },
+        {
+          "step": 400,
+          "train": 0.8206,
+          "val": 1.8794,
+          "val_other": 2.1483
+        }
+      ]
+    },
+    {
+      "method": "LoRA r=2",
+      "trainable": 18432,
+      "trainable_pct": 2.24,
+      "val_new": 1.7536,
+      "val_original": 1.7176,
+      "best_step": 300,
+      "seconds": 19.7,
+      "lr": 0.003,
+      "curve": [
+        {
+          "step": 1,
+          "train": 2.2693,
+          "val": 2.1922,
+          "val_other": 1.5156
+        },
+        {
+          "step": 50,
+          "train": 1.8403,
+          "val": 1.8246,
+          "val_other": 1.5582
+        },
+        {
+          "step": 100,
+          "train": 1.7039,
+          "val": 1.7835,
+          "val_other": 1.6497
+        },
+        {
+          "step": 150,
+          "train": 1.6202,
+          "val": 1.7708,
+          "val_other": 1.6873
+        },
+        {
+          "step": 200,
+          "train": 1.5412,
+          "val": 1.7747,
+          "val_other": 1.7046
+        },
+        {
+          "step": 250,
+          "train": 1.527,
+          "val": 1.7594,
+          "val_other": 1.714
+        },
+        {
+          "step": 300,
+          "train": 1.461,
+          "val": 1.7536,
+          "val_other": 1.7176
+        },
+        {
+          "step": 350,
+          "train": 1.5355,
+          "val": 1.7581,
+          "val_other": 1.7225
+        },
+        {
+          "step": 400,
+          "train": 1.5915,
+          "val": 1.7574,
+          "val_other": 1.7222
+        }
+      ]
+    },
+    {
+      "method": "LoRA r=8",
+      "trainable": 73728,
+      "trainable_pct": 8.95,
+      "val_new": 1.7582,
+      "val_original": 1.642,
+      "best_step": 50,
+      "seconds": 20.9,
+      "lr": 0.003,
+      "curve": [
+        {
+          "step": 1,
+          "train": 2.2744,
+          "val": 2.1899,
+          "val_other": 1.5147
+        },
+        {
+          "step": 50,
+          "train": 1.6015,
+          "val": 1.7582,
+          "val_other": 1.642
+        },
+        {
+          "step": 100,
+          "train": 1.3907,
+          "val": 1.7654,
+          "val_other": 1.8311
+        },
+        {
+          "step": 150,
+          "train": 1.2191,
+          "val": 1.7896,
+          "val_other": 1.9631
+        },
+        {
+          "step": 200,
+          "train": 1.139,
+          "val": 1.7941,
+          "val_other": 2.0269
+        },
+        {
+          "step": 250,
+          "train": 1.0885,
+          "val": 1.818,
+          "val_other": 2.0825
+        },
+        {
+          "step": 300,
+          "train": 1.021,
+          "val": 1.8379,
+          "val_other": 2.1095
+        },
+        {
+          "step": 350,
+          "train": 1.0604,
+          "val": 1.8394,
+          "val_other": 2.1227
+        },
+        {
+          "step": 400,
+          "train": 1.0736,
+          "val": 1.8375,
+          "val_other": 2.1252
+        }
+      ]
+    },
+    {
+      "method": "LoRA r=32",
+      "trainable": 294912,
+      "trainable_pct": 35.79,
+      "val_new": 1.738,
+      "val_original": 1.8249,
+      "best_step": 50,
+      "seconds": 19.9,
+      "lr": 0.003,
+      "curve": [
+        {
+          "step": 1,
+          "train": 2.2762,
+          "val": 2.1795,
+          "val_other": 1.5107
+        },
+        {
+          "step": 50,
+          "train": 1.3499,
+          "val": 1.738,
+          "val_other": 1.8249
+        },
+        {
+          "step": 100,
+          "train": 1.017,
+          "val": 1.8694,
+          "val_other": 2.2166
+        },
+        {
+          "step": 150,
+          "train": 0.8004,
+          "val": 2.0347,
+          "val_other": 2.4923
+        },
+        {
+          "step": 200,
+          "train": 0.6492,
+          "val": 2.1519,
+          "val_other": 2.6904
+        },
+        {
+          "step": 250,
+          "train": 0.5519,
+          "val": 2.2323,
+          "val_other": 2.8366
+        },
+        {
+          "step": 300,
+          "train": 0.4835,
+          "val": 2.251,
+          "val_other": 2.8868
+        },
+        {
+          "step": 350,
+          "train": 0.4766,
+          "val": 2.2825,
+          "val_other": 2.935
+        },
+        {
+          "step": 400,
+          "train": 0.4779,
+          "val": 2.2947,
+          "val_other": 2.9451
+        }
+      ]
+    }
+  ]
+}
