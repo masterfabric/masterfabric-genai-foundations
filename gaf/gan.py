@@ -68,3 +68,44 @@ def train(seed: int, steps: int = 4000, loss: str = "non_saturating", bs: int = 
         lg = bce(logits, ones) if loss == "non_saturating" else -bce(logits, zeros)
         og.zero_grad(); lg.backward(); og.step()
     return {"seed": seed, "loss": loss, "curve": curve, "final": curve[-1], "snapshots": snaps}
+
+
+def gradient_penalty(critic: nn.Module, real: torch.Tensor, fake: torch.Tensor, gen: torch.Generator) -> torch.Tensor:
+    """WGAN-GP (Gulrajani et al., 2017): (||grad_x D(x_hat)||_2 - 1)^2 on random interpolates of real and fake."""
+    eps = torch.rand(real.size(0), 1, generator=gen)
+    x_hat = (eps * real + (1 - eps) * fake).requires_grad_(True)
+    g, = torch.autograd.grad(critic(x_hat).sum(), x_hat, create_graph=True)
+    return ((g.norm(2, dim=1) - 1) ** 2).mean()
+
+
+def train_wgan_gp(seed: int, steps: int = 4000, bs: int = 256, n_critic: int = 5, lam: float = 10.0,
+                  lr: float = 1e-4, snapshots=(0, 500, 1500, 4000)):
+    """Same generator, same critic network (no sigmoid), the paper's defaults: 5 critic steps per generator
+    step, lambda 10, Adam(1e-4, betas 0.5/0.9). `steps` counts generator steps, as in train()."""
+    torch.manual_seed(seed)
+    gen = torch.Generator().manual_seed(seed)
+    m = GAN()
+    og = torch.optim.Adam(m.G.parameters(), lr=lr, betas=(0.5, 0.9))
+    od = torch.optim.Adam(m.D.parameters(), lr=lr, betas=(0.5, 0.9))
+    curve, snaps = [], {}
+    w_est = float("nan")
+    for step in range(steps + 1):
+        if step in snapshots:
+            with torch.no_grad():
+                snaps[step] = m.sample(1000, torch.Generator().manual_seed(99)).tolist()
+        if step % 250 == 0:
+            with torch.no_grad():
+                curve.append({"step": step, "wasserstein_estimate": round(w_est, 4)}
+                             | quality(m.sample(2000, torch.Generator().manual_seed(7))))
+        if step == steps:
+            break
+        for _ in range(n_critic):
+            real = real_batch(bs, gen)
+            fake = m.sample(bs, gen).detach()
+            d_real, d_fake = m.D(real).mean(), m.D(fake).mean()
+            ld = d_fake - d_real + lam * gradient_penalty(m.D, real, fake, gen)
+            od.zero_grad(); ld.backward(); od.step()
+            w_est = (d_real - d_fake).item()
+        lg = -m.D(m.sample(bs, gen)).mean()
+        og.zero_grad(); lg.backward(); og.step()
+    return {"seed": seed, "loss": "wgan_gp", "curve": curve, "final": curve[-1], "snapshots": snaps}
