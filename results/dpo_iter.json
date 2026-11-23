@@ -1,0 +1,85 @@
+{
+  "env": {
+    "torch": "2.15.0",
+    "device": "mps",
+    "machine": "arm64",
+    "python": "3.12.15"
+  },
+  "lr": 1e-05,
+  "betas": [
+    0.3,
+    1.0,
+    3.0
+  ],
+  "steps": 300,
+  "select_prompts": 128,
+  "test_prompts": 256,
+  "rows": [
+    {
+      "method": "reference (pretrained)",
+      "select_reward": 0.7342,
+      "reward": 0.7625,
+      "reward_se": 0.0061,
+      "kl_nats": 0.0,
+      "val_loss_original": 1.5159
+    },
+    {
+      "method": "DPO round 1, beta=0.3",
+      "select_reward": 0.7725,
+      "reward": 0.7919,
+      "reward_se": 0.0055,
+      "kl_nats": 3.562,
+      "val_loss_original": 1.5995,
+      "beta": 0.3,
+      "train_seconds": 11.8
+    },
+    {
+      "method": "DPO round 1, beta=1.0",
+      "select_reward": 0.7777,
+      "reward": 0.7922,
+      "reward_se": 0.0058,
+      "kl_nats": 1.223,
+      "val_loss_original": 1.5523,
+      "beta": 1.0,
+      "train_seconds": 11.8
+    },
+    {
+      "method": "DPO round 1, beta=3.0",
+      "select_reward": 0.7647,
+      "reward": 0.7754,
+      "reward_se": 0.006,
+      "kl_nats": 0.434,
+      "val_loss_original": 1.5293,
+      "beta": 3.0,
+      "train_seconds": 11.8
+    },
+    {
+      "method": "DPO round 2 (on-policy pairs, reference = round 1), beta=1.0",
+      "select_reward": 0.7985,
+      "reward": 0.8223,
+      "reward_se": 0.0052,
+      "kl_nats": 2.87,
+      "val_loss_original": 1.6003,
+      "beta": 1.0,
+      "train_seconds": 12.3
+    }
+  ],
+  "pairs_round1": {
+    "sampled": 2048,
+    "kept_after_ties": 1722,
+    "mean_reward_chosen": 0.8476,
+    "mean_reward_rejected": 0.6076
+  },
+  "selected_beta": 1.0,
+  "pairs_round2": {
+    "sampled": 2048,
+    "kept_after_ties": 1749,
+    "mean_reward_chosen": 0.8619,
+    "mean_reward_rejected": 0.6354
+  },
+  "examples": {
+    "reference": "and cis\nthe weight, decile stwork compaction run",
+    "round 1": "that was dedupe with ends.</sub></p>\n\n<p align=\"",
+    "round 2": "are cell\n (detection the Iceberg from state part"
+  }
+}
