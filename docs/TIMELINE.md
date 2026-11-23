@@ -84,3 +84,42 @@ matplotlib.
   validation loss to 2.1-4.0. Small β lowers the probability of the chosen completions as well as the rejected ones.
 - MPS is not bit-deterministic: re-running the DPO grid moved one point (β 1.0, lr 1e-4) from 0.729 to 0.719.
 - WGAN-GP, the GAN control and the diffusion ring runs overlapped on the CPU, so their wall times are upper bounds.
+
+## Addition: classifier-free guidance, iterative DPO and a measurement bug (2026-11-23)
+
+Times are Europe/Istanbul.
+
+| Commit | Time | What |
+|---|---|---|
+| `265b5a4` | 2026-11-23 12:44 | diffusion: class-conditional U-Net with a null class and classifier-free guidance; unit test for the guidance combination |
+| `b9191a9` | 2026-11-23 12:44 | experiments: classifier-free guidance sweep (w = 0..8) on the 16x16 shapes with the real-shape judge |
+| `78f6e08` | 2026-11-23 12:44 | experiments: DPO with beta chosen on selection prompts, reported on unseen test prompts, plus an on-policy second round |
+| `85f58cf` | 2026-11-23 13:27 | fix: evaluate() restores the caller's train/eval mode; it switched dropout on in DPO's reference model and samplers after the first measurement (regression test) |
+| `d9d54dc` | 2026-11-23 13:27 | results: keep the DPO and iterative-DPO runs measured with the dropout bug, for comparison |
+| `667dd6e` | 2026-11-23 13:34 | results: DPO grid and iterative DPO re-measured in eval mode; classifier-free guidance sweep (w = 0..8) |
+| `7ddf1ec` | 2026-11-23 13:34 | charts: guidance samples and distance vs w (figure 10); DPO chart and hero from the corrected results; make cfg, make dpo-iter |
+| `fdca02d` | 2026-11-23 13:34 | docs: section 8 classifier-free guidance, corrected DPO table with the dropout bug explained, iterative DPO; ADR 0007, ADR 0006 update |
+| (this commit) | 2026-11-23 | docs(timeline): guidance, iterative DPO and the eval-mode fix |
+
+### Verification
+
+| Check | Result |
+|---|---|
+| Unit tests | 16 passed (new: guidance combination, `evaluate()` keeps the caller's mode; the second fails on the old code) |
+| Guidance sweep (`make cfg`) | 8,000 steps in 187 s on MPS; w = 0 / 1 / 8: requested class 23.2% / 99.8% / 100%, Fréchet 1.93 / 0.57 / 41.3 (real vs real 0.80) |
+| DPO grid re-run (`make dpo`) | pairs identical to the first run (1,722; chosen 0.848, rejected 0.608); DPO β=1.0 0.783 at KL 1.2; best-of-4 0.918 |
+| Iterative DPO (`make dpo-iter`) | β=1.0 selected on 128 prompts; 256 test prompts: 0.763 → 0.792 → 0.822 |
+| Other experiments | not re-run; their charts regenerate unchanged from the existing results |
+
+### Found while running it
+
+- `evaluate()` ended with `model.train()`, so the DPO reference model ran with dropout after its first
+  measurement. The first DPO grid's KL values were 5-10x too high and best-of-4 was 0.763 instead of 0.918, which
+  reversed the comparison with DPO. It showed up because the iterative run measured the same reference twice: 0.734
+  on selection prompts, then 0.562 on test prompts. Re-generating the round-1 pairs in a clean process reproduced the
+  first run's pairs exactly (1,722, 0.8476 / 0.6076), which pointed at state left behind by an earlier call.
+- Guidance above w = 1 only moved samples away from real shapes here: the conditional model already draws the
+  requested class 99.8% of the time, so the class-match gain has no room to show.
+- Circles drift most under guidance (Fréchet 1.4 at w = 1, 157 at w = 8); crosses barely (0.9 to 1.6).
+- A background job on this laptop removed every `.venv` under `~/Documents/GitHub` during the work; runs used a
+  temporary venv outside the repository with the pinned torch 2.15.0.
