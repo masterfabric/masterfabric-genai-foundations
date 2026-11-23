@@ -39,3 +39,13 @@ No configuration is "selected": the grid is scored on the same prompts, so the b
   4x at inference.
 - One run per configuration; MPS kernels are not bit-deterministic, and a re-run moved one grid point by 0.01. The
   reward is a proxy chosen to be measurable, not a human preference.
+
+## Update 2026-11-23: corrected measurements (ADR 0007)
+
+The evidence above was measured with dropout left on in the reference model after its first evaluation
+(`evaluate()` restored training mode). Re-measured with the fix: DPO β=1.0, lr 1e-5 reaches 0.783 at a KL of
+1.2 nats (11.1 reported), filtered SFT 0.773 at 1.7 nats, and **best-of-4 sampling 0.918** (0.763 reported). The
+β ≥ 1 rule and the likelihood-displacement finding stand (they come from the log-probabilities of the training
+pairs, computed before the bug took effect). The comparison with best-of-n does not: at this scale and reward,
+sampling four times and keeping the best beats every trained method. Choosing β on separate prompts and adding an
+on-policy second round raised the reward on unseen prompts from 0.763 to 0.792 and 0.822 (ADR 0007).

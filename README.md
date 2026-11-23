@@ -11,7 +11,9 @@ laptop GPU (Apple M4 Pro, MPS):
 4. **Policy-gradient RL**: REINFORCE with and without a value baseline on a from-scratch CartPole.
 5. **WGAN-GP**: the Wasserstein critic with a gradient penalty, on the GAN's target.
 6. **A small diffusion model**: DDPM and DDIM, on the same 2-D target and on 16x16 images.
-7. **DPO**: direct preference optimisation of the GPT, against filtered SFT and best-of-n sampling.
+7. **DPO**: direct preference optimisation of the GPT, against filtered SFT and best-of-n sampling, then a second,
+   on-policy round.
+8. **Classifier-free guidance**: one class-conditional U-Net for the 16x16 shapes, sampled at guidance scales 0 to 8.
 
 Each comes with tests, an executed notebook and results in [`results/`](results/). All numbers are
 measured, including the runs that overfit or collapsed.
@@ -23,7 +25,7 @@ measured, including the runs that overfit or collapsed.
 
 [Key results](#key-results) · [Overview](#overview) · [1 Transformer](#1-attention-and-a-gpt-style-transformer) ·
 [2 LoRA](#2-lora) · [3 GAN](#3-gan) · [4 RL](#4-policy-gradient-rl) · [5 WGAN-GP](#5-wgan-gp) ·
-[6 Diffusion](#6-diffusion) · [7 DPO](#7-dpo) · [Notebooks](#notebooks) · [ADRs](#decisions) ·
+[6 Diffusion](#6-diffusion) · [7 DPO](#7-dpo) · [8 Guidance](#8-classifier-free-guidance) · [Notebooks](#notebooks) · [ADRs](#decisions) ·
 [Enterprise mapping](#enterprise-mapping) · [Quickstart](#quickstart) · [Limitations](#limitations) · [Roadmap](#roadmap)
 
 ## Key results
@@ -38,7 +40,9 @@ measured, including the runs that overfit or collapsed.
 | WGAN-GP, 20k generator steps | **8 of 8** modes in all 3 seeds, 74-77% on a mode (GAN at 20k: still 4-6 of 8) | 101-107 s per run, CPU |
 | Diffusion (DDPM) on the same ring | **8 of 8** modes, 95% on a mode (3 seeds); DDIM 20 steps: 8 of 8, 89% | 10 s training, CPU |
 | Diffusion on 16x16 shapes, U-Net 582k | balanced classes, judge-feature Fréchet **0.75** (real vs real 0.80); DDIM without x0 clamp: one class of noise | 182 s on MPS |
-| DPO on the GPT, β=1.0 | reward (share of real words) 0.749 → **0.786 ± 0.006**; filtered SFT 0.771, best-of-4 0.763 | 11 s per run, MPS |
+| DPO on the GPT, β=1.0 | reward (share of real words) 0.749 → **0.783 ± 0.006** at KL 1.2 nats; filtered SFT 0.773; best-of-4 sampling **0.918** | 11 s per run, MPS |
+| Iterative DPO, β chosen on separate prompts | unseen test prompts: 0.763 → 0.792 (round 1) → **0.822** (round 2, on-policy pairs) | 12 s per round, MPS |
+| Classifier-free guidance, w = 0 → 1 → 8 | requested class 23% → **100%** → 100%; judge-feature Fréchet 1.93 → **0.57** → 41.3 | 187 s training, MPS |
 
 ## Overview
 
@@ -210,18 +214,73 @@ loss on the original validation text.
 | Method | Reward (±1 s.e.) | KL, nats per completion | Val loss, original text |
 |---|---|---|---|
 | Reference (pretrained) | 0.749 ± 0.006 | 0 | 1.516 |
-| Best-of-4 sampling | 0.763 | ≤ 0.64 (analytic bound) | 1.516 (4x inference) |
-| Filtered SFT, lr 3e-5 | 0.771 ± 0.006 | 11.9 | 1.583 |
-| **DPO β=1.0, lr 1e-5** | **0.786 ± 0.006** | 11.1 | 1.552 |
-| DPO β=0.3, lr 1e-5 | 0.773 ± 0.006 | 13.2 | 1.600 |
-| DPO β=0.1, lr 1e-5 | 0.721 ± 0.006 | 17.7 | 1.684 |
-| DPO β=0.1, lr 1e-4 | 0.498 ± 0.008 | 73.2 | 2.924 |
+| **Best-of-4 sampling** | **0.918** | ≤ 0.64 (analytic bound) | 1.516 (4x inference) |
+| Filtered SFT, lr 3e-5 | 0.773 ± 0.006 | 1.7 | 1.583 |
+| **DPO β=1.0, lr 1e-5** | **0.783 ± 0.006** | 1.2 | 1.552 |
+| DPO β=0.3, lr 1e-5 | 0.777 ± 0.006 | 3.6 | 1.600 |
+| DPO β=0.1, lr 1e-5 | 0.727 ± 0.007 | 9.6 | 1.684 |
+| DPO β=0.1, lr 1e-4 | 0.498 ± 0.008 | 73.1 | 2.924 |
+
+*Corrected on 2026-11-23.* The first version of this table was measured with a bug: `evaluate()` switched every model
+it scored back to training mode, so after the reference's first measurement its dropout (0.2) was on. That inflated
+every KL (DPO β=1.0: 11.1 nats reported, 1.2 measured correctly), and best-of-4 sampled from the noisy reference
+(0.763 reported, 0.918 correctly). The trained policies' rewards moved only within sampling noise (DPO β=1.0: 0.786 →
+0.783). The fix and a regression test are in `experiments/train_gpt.py` and `tests/test_transformer.py`; the old
+results are kept as `results/dpo_run1_dropout_on.json`. **With the bug fixed, best-of-4 sampling beats every trained
+method on this reward**, at 4x inference cost and no training.
 
 **Found while running it.** The first grid (lr 1e-4, β 0.03-0.3) made the model worse on the reward it was trained for.
 With β=0.1 the chosen completions lose 5.2 nats and the rejected ones 13.8: the loss is met by widening the gap,
 and the freed probability goes to text that is neither. With β=1.0 the chosen gain 0.7 and only the rejected lose.
 The grid is scored on the same prompts it is reported on, so the best point is optimistic. See
 [ADR 0006](docs/adr/0006-dpo-on-the-char-gpt.md).
+
+**Second look: held-out selection and an on-policy round** (`make dpo-iter`,
+[`results/dpo_iter.json`](results/dpo_iter.json)). β is chosen on 128 selection prompts and reported on 256 other
+prompts from the validation text, 4 samples each. Round 2 samples fresh pairs from the round-1 policy on new training
+prompts and uses that policy as the reference.
+
+| Model | Selection prompts | Test prompts (±1 s.e.) | KL to its reference, nats | Val loss |
+|---|---|---|---|---|
+| Reference (pretrained) | 0.734 | 0.763 ± 0.006 | 0 | 1.516 |
+| DPO round 1, β=0.3 | 0.773 | 0.792 ± 0.006 | 3.6 | 1.600 |
+| **DPO round 1, β=1.0 (selected)** | **0.778** | 0.792 ± 0.006 | 1.2 | 1.552 |
+| DPO round 1, β=3.0 | 0.765 | 0.775 ± 0.006 | 0.4 | 1.529 |
+| **DPO round 2, β=1.0, on-policy pairs** | 0.799 | **0.822 ± 0.005** | 2.9 (to round 1) | 1.600 |
+
+Selection picked β=1.0, which ties β=0.3 on the test prompts. The second round adds 0.030 on unseen prompts; its
+pairs are better on both sides (chosen 0.862, rejected 0.635, against 0.848 and 0.608 from the pretrained model).
+The cost shows in the original text: validation loss 1.516 → 1.552 → 1.600. Best-of-4 from the pretrained model
+(0.918 on the first grid's prompts) is still higher. A first run of this experiment had the dropout bug too and is
+kept as `results/dpo_iter_run1_dropout_on.json`: its test rewards were all measured with dropout on (reference 0.562).
+
+## 8. Classifier-free guidance
+
+[`gaf/diffusion.py`](gaf/diffusion.py) adds `CondUNet`, the shapes U-Net with a class embedding and one extra "null"
+class, and `guided(model, y, w)`, which predicts `ε = ε(x, ∅) + w · (ε(x, y) − ε(x, ∅))` (Ho & Salimans, 2022). One
+model is trained for 8,000 steps with the label dropped 10% of the time (187 s on MPS), then sampled with DDIM 50 +
+x0 clamp at w = 0 (unconditional), 1 (plain conditional), 2, 3, 5 and 8: 500 images per class and scale, judged by
+the same real-shapes classifier as section 6 (`make cfg`, [`results/cfg.json`](results/cfg.json)).
+
+<p align="center"><img src="docs/images/cfg.png" alt="Left: samples for each requested class at guidance 0, 1, 3 and 8. Right: Frechet distance to real shapes against guidance scale, overall and per class" width="100%"></p>
+<p align="center"><sub><b>Figure 10.</b> Left: the same noise per row, four requested classes. At w = 0 the class is ignored; from w = 1 every image is the requested shape, and by w = 8 circles and squares are larger and bolder. Right: distance to real shapes, lowest at w = 1 and rising with w, most for circles.</sub></p>
+
+| Guidance w | Requested class | Judge confident (> 0.9) | Fréchet, all (real vs real 0.80) | Fréchet, circles | Pixel std within class (real 0.473) |
+|---|---|---|---|---|---|
+| 0 (unconditional) | 23.2% | 99.3% | 1.93 | 530 | 0.493 |
+| **1 (conditional)** | **99.8%** | 99.6% | **0.57** | 1.4 | 0.472 |
+| 2 | 100% | 100% | 5.72 | 16.0 | 0.474 |
+| 3 | 100% | 100% | 15.5 | 47.7 | 0.474 |
+| 5 | 100% | 99.9% | 31.6 | 112 | 0.477 |
+| 8 | 100% | 99.9% | 41.3 | 157 | 0.484 |
+
+On this task guidance above 1 buys nothing measurable and costs fidelity: the conditional model already draws the
+requested shape 99.8% of the time, and every larger w moves the images further from real ones. The per-class
+distance shows where: circles and squares drift most (they grow and fill out), crosses barely. Pixel standard
+deviation within a class did not fall, so this measure shows no loss of variety; it is coarse (it mostly tracks
+position and size), so a diversity loss of the kind guidance is known for is not ruled out. Classes this easy are
+why the textbook trade-off (more w, better class match, less variety) shows only its second half here. See
+[ADR 0007](docs/adr/0007-classifier-free-guidance-and-the-dpo-correction.md).
 
 ## Notebooks
 
@@ -245,6 +304,7 @@ output is real and the cells can be reviewed as Python:
 | [0004](docs/adr/0004-wgan-gp-and-the-ring-benchmark.md) | WGAN-GP and diffusion on the GAN's ring, with a 20k-step GAN control |
 | [0005](docs/adr/0005-diffusion-ddpm-ddim-clamp.md) | DDPM with a cosine schedule; DDIM only with a clamped x0 |
 | [0006](docs/adr/0006-dpo-on-the-char-gpt.md) | DPO reported as reward vs KL against SFT and best-of-n |
+| [0007](docs/adr/0007-classifier-free-guidance-and-the-dpo-correction.md) | Guidance scale chosen by measurement; models are scored in eval mode, checked by a test |
 
 ## Enterprise mapping
 
@@ -288,6 +348,11 @@ interactively, run `make lab` (JupyterLab on `127.0.0.1:17888`, after `uv pip in
 - **Diffusion at toy scale.** 2-D points and 16x16 binary-like shapes. The image judge is so accurate that DDPM
   samples are indistinguishable from real ones by its Fréchet distance (0.75 vs 0.80 real vs real); it ranks
   samplers, not DDPM against real data. No latent diffusion, no text conditioning.
+- **The first DPO results were wrong in KL and best-of-4** (dropout left on; corrected 2026-11-23, see section 7).
+  Other experiments use `evaluate()` only on models in training mode, which the fix does not change; their results
+  were not re-run.
+- **Guidance on easy classes.** The judge is saturated at w = 1, so the class-match benefit of guidance cannot show,
+  and pixel standard deviation is a coarse stand-in for diversity. One model, one seed.
 - **DPO's reward is a proxy.** "Share of real words" is chosen to be measurable; it is not a human preference. One run
   per grid point; MPS is not bit-deterministic (a re-run moved one point by 0.01).
 - **WGAN-GP gets more compute.** 5 critic steps per generator step; at the GAN's own budget it does worse.
@@ -299,7 +364,8 @@ interactively, run `make lab` (JupyterLab on `127.0.0.1:17888`, after `uv pip in
 - KV cache in `generate()` and a measured speed-up; RoPE and grouped-query attention.
 - PPO and a toy RLHF loop with a learned reward model, compared with DPO on the same pairs and reward.
 - Notebooks for WGAN-GP, diffusion and DPO.
-- Classifier-free guidance for class-conditional shapes; a harder image set where the judge can tell DDPM from real.
+- A harder image set where the judge can tell DDPM from real, so guidance's class-match gain becomes measurable.
+- Best-of-n vs DPO at equal compute (training cost vs n× inference).
 - QLoRA-style 4-bit base weights with LoRA on top.
 
 ## License
