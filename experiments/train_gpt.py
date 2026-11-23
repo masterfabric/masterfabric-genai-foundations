@@ -31,10 +31,11 @@ def batch(data, bs, block, dev, gen):
 
 @torch.no_grad()
 def evaluate(model, data, dev, iters=20, bs=64):
+    was_training = model.training
     model.eval()
     g = torch.Generator().manual_seed(123)
     losses = [model(*batch(data, bs, model.c.block_size, dev, g))[1].item() for _ in range(iters)]
-    model.train()
+    model.train(was_training)  # restore the caller's mode; it used to switch dropout on for models kept in eval mode
     return sum(losses) / len(losses)
 
 

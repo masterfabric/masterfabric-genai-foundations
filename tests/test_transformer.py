@@ -44,3 +44,20 @@ def test_add_lora_freezes_base():
     total = sum(p.numel() for p in m.parameters())
     add_lora(m, r=4)
     assert 0 < trainable(m) < total * 0.2
+
+
+def test_evaluate_restores_the_callers_mode():
+    """evaluate() once left every model in train mode, so dropout was on in DPO's reference and samplers after the
+    first measurement (found 2026-11-23). It must hand the model back in the mode it received it."""
+    import sys
+    sys.path.insert(0, "experiments")
+    from train_gpt import evaluate
+
+    data = torch.randint(0, 30, (500,))
+    m = GPT(GPTConfig(vocab_size=30, block_size=16, n_layer=1, n_head=2, d_model=16, dropout=0.2))
+    m.eval()
+    evaluate(m, data, "cpu", iters=2, bs=4)
+    assert not m.training
+    m.train()
+    evaluate(m, data, "cpu", iters=2, bs=4)
+    assert m.training
