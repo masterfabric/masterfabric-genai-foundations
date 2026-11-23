@@ -2,7 +2,7 @@
 SHELL := /bin/bash
 PY    ?= .venv/bin/python
 
-.PHONY: help venv test gpt lora gan wgan diffusion dpo rl all notebooks charts lab
+.PHONY: help venv test gpt lora gan wgan diffusion dpo dpo-iter cfg rl all notebooks charts lab
 
 help: ## Show targets
 	@grep -hE '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-10s\033[0m %s\n",$$1,$$2}'
@@ -10,7 +10,7 @@ help: ## Show targets
 venv: ## Create .venv with uv and the pinned dependencies
 	uv venv -p 3.12 .venv && uv pip install -p .venv -r requirements.txt
 
-test: ## Unit tests: attention, LoRA, gradient penalty, diffusion samplers, DPO loss (14)
+test: ## Unit tests: attention, LoRA, gradient penalty, diffusion samplers and guidance, DPO loss, eval mode (16)
 	$(PY) -m pytest -q
 
 gpt: ## Pretrain the char-level GPT (~1 min on Apple MPS)
@@ -31,10 +31,16 @@ diffusion: ## DDPM/DDIM on the ring (3 seeds, CPU) and on 16x16 shapes (U-Net, A
 dpo: gpt ## DPO grid vs filtered SFT and best-of-4 on the pretrained GPT (~3 min, MPS)
 	$(PY) experiments/run_dpo.py
 
+dpo-iter: gpt ## DPO with beta chosen on selection prompts, reported on test prompts, plus an on-policy round 2 (~2 min, MPS)
+	$(PY) experiments/run_dpo_iter.py
+
+cfg: ## Classifier-free guidance: conditional U-Net, guidance scales 0-8 on 16x16 shapes (~5 min, MPS)
+	$(PY) experiments/run_cfg.py
+
 rl: ## REINFORCE with and without baseline, 3 seeds each (~25 s, CPU)
 	$(PY) experiments/run_rl.py
 
-all: lora gan wgan diffusion dpo rl notebooks charts ## Every experiment, then notebooks and charts
+all: lora gan wgan diffusion dpo dpo-iter cfg rl notebooks charts ## Every experiment, then notebooks and charts
 
 notebooks: ## Rebuild and execute the four notebooks
 	$(PY) notebooks/build_notebooks.py

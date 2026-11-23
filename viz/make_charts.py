@@ -210,9 +210,50 @@ def dpo():
     fig.tight_layout(); fig.savefig(IMG / "dpo.png"); plt.close(fig)
 
 
+def cfg():
+    import numpy as np
+    d = J("cfg")
+    sc = d["scales"]
+    show = ["w=0", "w=1", "w=3", "w=8"]
+    names = list(sc["w=1"]["per_class"])
+    fig = plt.figure(figsize=(17, 6.4))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.35, 1])
+    a0 = fig.add_subplot(gs[0])
+    n = 4  # images per class shown
+    tile = np.ones((len(show) * 18, 4 * n * 18 + 3 * 8)) * 40
+    for r, key in enumerate(show):
+        for k in range(4):
+            g = np.array(sc[key]["grid"][k])
+            for j in range(n):
+                c0 = (k * n + j) * 18 + k * 8
+                tile[r * 18 + 1:r * 18 + 17, c0 + 1:c0 + 17] = g[j]
+    a0.imshow(tile, cmap="gray", vmin=0, vmax=255, interpolation="nearest")
+    a0.set_yticks([r * 18 + 8.5 for r in range(len(show))],
+                  [f"{k.replace('w=', 'w = ')}\n{sc[k]['on_class_pct']:.0f}% on class" for k in show], fontsize=10)
+    a0.set_xticks([(k * n + n / 2) * 18 + k * 8 for k in range(4)], [f"asked for: {c}" for c in names], fontsize=10)
+    a0.tick_params(length=0); a0.grid(False)
+    a0.set_title("Samples per requested class (DDIM 50 + clamp, same noise per row)", loc="left")
+    a1 = fig.add_subplot(gs[1])
+    ws = [sc[k]["w"] for k in sc]
+    cols = {"circle": HEX["ORANGE"], "square": HEX["YELLOW"], "triangle": HEX["GREEN"], "cross": HEX["PURPLE"]}
+    a1.plot(ws, [sc[k]["frechet_all"] for k in sc], "o-", color=HEX["WHITE"], lw=2.4, label="all classes")
+    for c in names:
+        a1.plot(ws[1:], [sc[k]["per_class"][c]["frechet"] for k in list(sc)[1:]], "o--", color=cols[c], lw=1.4,
+                label=f"{c}es vs real {c}es" if c == "cross" else f"{c}s vs real {c}s")
+    a1.axhline(d["real_vs_real_frechet"], color=HEX["GREY"], ls=":", label=f"real vs real ({d['real_vs_real_frechet']:.2f})")
+    a1.set_yscale("log"); a1.set_xlabel("guidance scale w (0 = unconditional, 1 = conditional, >1 = guided)")
+    a1.set_ylabel("Fréchet distance to real shapes, judge features (log)")
+    a1.set_title("Distance to real images rises with w; on-class share (labels) is full from w = 1", loc="left", fontsize=11)
+    a1.legend(fontsize=9, loc="upper left")
+    fig.suptitle(f"Classifier-free guidance: one U-Net ({d['params'] / 1e3:.0f}k parameters), {d['train_steps']:,} steps with "
+                 f"{d['p_drop']:.0%} label dropout, {d['train_seconds'] / 60:.0f} min on Apple MPS · {d['images_per_class']} images "
+                 "per class and scale", x=0.01, ha="left", fontsize=11.5)
+    fig.tight_layout(); fig.savefig(IMG / "cfg.png"); plt.close(fig)
+
+
 if __name__ == "__main__":
     IMG.mkdir(parents=True, exist_ok=True)
-    for f in (gpt, lora, gan, rl, ring_compare, diffusion_shapes, diffusion_steps, dpo):
+    for f in (gpt, lora, gan, rl, ring_compare, diffusion_shapes, diffusion_steps, dpo, cfg):
         try:
             f()
         except FileNotFoundError as e:
