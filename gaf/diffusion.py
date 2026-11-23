@@ -127,6 +127,44 @@ class UNet(nn.Module):
         return self.out(u)
 
 
+class CondUNet(UNet):
+    """UNet with a class embedding added to the time embedding, for classifier-free guidance (Ho and Salimans,
+    2022). Class index n_classes is the "no class" token: training drops the label to it with probability p_drop,
+    so one network learns both eps(x_t, t, y) and eps(x_t, t)."""
+
+    def __init__(self, n_classes: int = 4, ch: int = 32, temb: int = 128):
+        super().__init__(ch, temb)
+        self.n_classes = n_classes
+        self.cemb = nn.Embedding(n_classes + 1, temb)
+
+    def forward(self, x, t, y=None):
+        if y is None:
+            y = torch.full((x.size(0),), self.n_classes, device=x.device, dtype=torch.long)
+        te = self.tmlp(time_embedding(t, self.temb)) + self.cemb(y)
+        h0 = self.d1(self.inp(x), te)
+        h1 = self.d2(F.avg_pool2d(h0, 2), te)
+        m = self.mid(F.avg_pool2d(h1, 2), te)
+        u = self.u2(torch.cat([F.interpolate(m, scale_factor=2), h1], 1), te)
+        u = self.u1(torch.cat([F.interpolate(u, scale_factor=2), h0], 1), te)
+        return self.out(u)
+
+
+def guided(model: CondUNet, y: torch.Tensor, w: float):
+    """eps = eps_uncond + w (eps_cond - eps_uncond). w = 0: unconditional; w = 1: plain conditional; w > 1: guided.
+    Returns a model(x, t) callable, so Diffusion.sample is unchanged."""
+    null = torch.full_like(y, model.n_classes)
+
+    def f(x, t):
+        if w == 0:
+            return model(x, t, null)
+        if w == 1:
+            return model(x, t, y)
+        e = model(torch.cat([x, x]), torch.cat([t, t]), torch.cat([y, null]))
+        ec, eu = e.chunk(2)
+        return eu + w * (ec - eu)
+    return f
+
+
 SHAPES = ("circle", "square", "triangle", "cross")
 
 
