@@ -1,0 +1,85 @@
+{
+  "env": {
+    "torch": "2.15.0",
+    "device": "mps",
+    "machine": "arm64",
+    "python": "3.12.15"
+  },
+  "lr": 1e-05,
+  "betas": [
+    0.3,
+    1.0,
+    3.0
+  ],
+  "steps": 300,
+  "select_prompts": 128,
+  "test_prompts": 256,
+  "rows": [
+    {
+      "method": "reference (pretrained)",
+      "select_reward": 0.7342,
+      "reward": 0.5624,
+      "reward_se": 0.0069,
+      "kl_nats": 0.019,
+      "val_loss_original": 1.5159
+    },
+    {
+      "method": "DPO round 1, beta=0.3",
+      "select_reward": 0.7753,
+      "reward": 0.6233,
+      "reward_se": 0.0064,
+      "kl_nats": 1.089,
+      "val_loss_original": 1.6086,
+      "beta": 0.3,
+      "train_seconds": 11.3
+    },
+    {
+      "method": "DPO round 1, beta=1.0",
+      "select_reward": 0.7767,
+      "reward": 0.6176,
+      "reward_se": 0.0063,
+      "kl_nats": 0.83,
+      "val_loss_original": 1.5777,
+      "beta": 1.0,
+      "train_seconds": 11.2
+    },
+    {
+      "method": "DPO round 1, beta=3.0",
+      "select_reward": 0.7779,
+      "reward": 0.6113,
+      "reward_se": 0.0064,
+      "kl_nats": 0.788,
+      "val_loss_original": 1.5687,
+      "beta": 3.0,
+      "train_seconds": 11.2
+    },
+    {
+      "method": "DPO round 2 (on-policy pairs, reference = round 1), beta=3.0",
+      "select_reward": 0.7928,
+      "reward": 0.6226,
+      "reward_se": 0.0065,
+      "kl_nats": 1.808,
+      "val_loss_original": 1.6257,
+      "beta": 3.0,
+      "train_seconds": 11.5
+    }
+  ],
+  "pairs_round1": {
+    "sampled": 2048,
+    "kept_after_ties": 1895,
+    "mean_reward_chosen": 0.6998,
+    "mean_reward_rejected": 0.434
+  },
+  "selected_beta": 3.0,
+  "pairs_round2": {
+    "sampled": 2048,
+    "kept_after_ties": 1895,
+    "mean_reward_chosen": 0.7235,
+    "mean_reward_rejected": 0.4728
+  },
+  "examples": {
+    "reference": "rather tunning of Tases and parquelity.\n- Status",
+    "round 1": "and lafter commit. A\n  for lable exiture live ts",
+    "round 2": "nev cell. Compolines, the was after intive last "
+  }
+}
